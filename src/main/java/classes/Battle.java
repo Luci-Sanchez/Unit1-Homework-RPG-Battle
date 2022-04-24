@@ -9,32 +9,14 @@ public class Battle {
     private List<Character> party1 = new ArrayList<>(MAX_LENGTH);
     private List<Character> party2 = new ArrayList<>(MAX_LENGTH);
     private List<Character> graveyard = new ArrayList<>();
+    private List<Round> battleRounds = new ArrayList<>();
     //isBattleFinished is set to true when one of the parties is empty, it has lost all its combatants
-    private boolean isBattlefinished = false;
+    private boolean battleFinished;
 
-    //each fight or round will have two combatants
-    private Character currentCombatant1;
-    private Character currentCombatant2;
-    //initial value is false, when one combatant is dead or there is a tie it will start as false again.
-    private boolean isRoundFinished = false;
-    private boolean isRoundStarted = false;
-
-    public Battle(List<Character> party1, List<Character> party2, List<Character> graveyard, boolean isBattlefinished) {
+    public Battle(List<Character> party1, List<Character> party2) {
         this.party1 = party1;
         this.party2 = party2;
-        this.graveyard = graveyard;
-        this.isBattlefinished = isBattlefinished;
-    }
-
-    public Battle(List<Character> party1, List<Character> party2, List<Character> graveyard, boolean isBattlefinished,
-                  Character currentCombatant1, Character currentCombatant2, boolean isRoundFinished) {
-        this.party1 = party1;
-        this.party2 = party2;
-        this.graveyard = graveyard;
-        this.isBattlefinished = isBattlefinished;
-        this.currentCombatant1 = currentCombatant1;
-        this.currentCombatant2 = currentCombatant2;
-        this.isRoundFinished = isRoundFinished;
+        this.battleFinished = false;
     }
 
     public int getMAX_LENGTH() { return MAX_LENGTH; }
@@ -51,22 +33,9 @@ public class Battle {
 
     public void setGraveyard(List<Character> graveyard) { this.graveyard = graveyard; }
 
-    public boolean isBattlefinished() { return isBattlefinished; }
+    public boolean isBattleFinished() { return battleFinished; }
 
-    public void setBattlefinished(boolean battlefinished) {
-        isBattlefinished = battlefinished; }
-
-    public Character getCurrentCombatant1() { return currentCombatant1; }
-
-    public void setCurrentCombatant1(Character currentCombatant1) { this.currentCombatant1 = currentCombatant1; }
-
-    public Character getCurrentCombatant2() { return currentCombatant2; }
-
-    public void setCurrentCombatant2(Character currentCombatant2) { this.currentCombatant2 = currentCombatant2; }
-
-    public boolean isRoundFinished() { return isRoundFinished; }
-
-    public void setRoundFinished(boolean roundFinished) { isRoundFinished = roundFinished; }
+    public void setBattleFinished(boolean battleFinished) { this.battleFinished = battleFinished; }
 }
 
 
