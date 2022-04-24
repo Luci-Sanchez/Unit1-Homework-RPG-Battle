@@ -6,10 +6,10 @@ import java.util.List;
 public class Battle {
     //will receive 2 Parties who will battle & type of combat
     private final int MAX_LENGTH = 5;
-    private List<Character> party1 = new ArrayList<>(MAX_LENGTH);
-    private List<Character> party2 = new ArrayList<>(MAX_LENGTH);
+    private Party party1; //List<Character>
+    private Party party2;
     private List<Character> graveyard = new ArrayList<>();
-    private List<Round> battleRounds = new ArrayList<>();
+    private List<Duel> battleDuels = new ArrayList<>();
     //isBattleFinished is set to true when one of the parties is empty, it has lost all its combatants
     private boolean battleFinished;
 
@@ -18,6 +18,9 @@ public class Battle {
         this.party2 = party2;
         this.battleFinished = false;
     }
+
+
+    //if Party is empty battleFinished or is running change to true
 
     public int getMAX_LENGTH() { return MAX_LENGTH; }
 

@@ -3,20 +3,22 @@ package classes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Round {
+public class Duel {
     //each fight or round will have two combatants
     private Character currentCombatant1;
     private Character currentCombatant2;
 
-    private List<Character> winnerArr = new ArrayList<>();
+    private Character winnerArr ;
     //initial value is false, when one combatant is dead or there is a tie it will start as false again.
     private boolean roundFinished;
 
-    public Round(Character currentCombatant1, Character currentCombatant2) {
+    public Duel(Character currentCombatant1, Character currentCombatant2) {
         this.currentCombatant1 = currentCombatant1;
         this.currentCombatant2 = currentCombatant2;
         this.roundFinished = false;
     }
+
+    //check this after each round ---> if combatant is dead roundFinished is true
 
     public Character getCurrentCombatant1() { return currentCombatant1; }
 
