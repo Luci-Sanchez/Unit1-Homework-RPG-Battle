@@ -6,8 +6,8 @@ public class Wizard extends Character  implements Attackers {
     private int mana;
     private int intelligence;
 
-    public Wizard(int id, String name, int hp, boolean isAlive, int mana, int intelligence) {
-        super(id, name, hp, isAlive);
+    public Wizard(String name, int hp, int mana, int intelligence) {
+        super(name, hp);
         this.mana = mana;
         this.intelligence = intelligence;
     }

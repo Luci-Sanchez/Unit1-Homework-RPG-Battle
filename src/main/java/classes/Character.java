@@ -1,23 +1,25 @@
 package classes;
 
+import java.util.UUID;
+
 public abstract class Character {
-    private int id;
+    private String id;
     private String name;
     private int hp;
     private boolean isAlive;
 
-    public Character(int id, String name, int hp, boolean isAlive) {
-        this.id = id;
+    public Character(String name, int hp) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.hp = hp;
-        this.isAlive = isAlive;
+        this.isAlive = true;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
