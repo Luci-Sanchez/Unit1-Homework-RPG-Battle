@@ -31,12 +31,13 @@ public class Warrior extends Character implements Attackers {
 
 
     @Override
-    public void bigAttack() {
+    public int bigAttack() {
 
     }
 
     @Override
-    public void smallAttack() {
+    public int smallAttack() {
+
 
     }
 }
