@@ -6,12 +6,11 @@ import java.util.Random;
 
 public class Party {
     private String partyName;
-    private List<Character> characters; // In Constructor this.Characters = new Character[3]; // Or ArrayList
+    private List<Character> characters = new ArrayList<>(); // In Constructor this.Characters = new Character[3]; // Or ArrayList
     private boolean randomPArty;
 
     //private int partyWins;
     //private int partyLosses;
-
 
 
     //Constructor 4 Import (all)
@@ -35,7 +34,6 @@ public class Party {
     }
 
 
-
     //Party Name
     public String getPartyName() {
         return partyName;
@@ -54,57 +52,58 @@ public class Party {
     public void setCharacters(List<Character> characters) {
         this.characters = characters;  //Import Array
     }
+
     //Add Character
-    public void addCharacter(Character character){
+    public void addCharacter(Character character) {
         //Validar tamaño Party/ espacios nulos?
         //VAlidar si nombre existe - +Jr.
         characters.add(character);
     }
 
     //Remove character - form party in battle --> Graveyard
-    public void removeCharacter(Character character){
+    public void removeCharacter(Character character) {
         characters.remove(character);
     }
 
     //Random Method
-    public List randomMethod(){
+    public List randomMethod() {
         List<Character> randomList = new ArrayList<>();
 
         String name = randomName();
         Random isWarrior = new Random();
         Random randomInt = new Random();
 
-        if (isWarrior.nextBoolean()){
+        if (isWarrior.nextBoolean()) {
             int randomHP = randomInt.nextInt((200 - 100) + 1) + 100;
             int randomStamina = randomInt.nextInt((50 - 10) + 1) + 10;
             int randomStrength = randomInt.nextInt((10 - 1) + 1) + 1;
-           Warrior randomWarrior = new Warrior( name, randomHP, randomStamina, randomStrength);
-            //characters.addCharacter(randomWarrior);
+            Warrior randomWarrior = new Warrior(name, randomHP, randomStamina, randomStrength);
+            addCharacter(randomWarrior);
 
-        }else{
+        } else {
             int randomHP = randomInt.nextInt((100 - 50) + 1) + 50;
             int randomMana = randomInt.nextInt((50 - 10) + 1) + 10;
             int randomSIntelligence = randomInt.nextInt((50 - 1) + 1) + 1;
-            Wizard randomWizard = new Wizard( name, randomHP, randomMana, randomSIntelligence);
-            //characters.addCharacter(randomWizard);
+            Wizard randomWizard = new Wizard(name, randomHP, randomMana, randomSIntelligence);
+            addCharacter(randomWizard);
         }
         return randomList;
     }
 
-        public String randomName(){
+    public String randomName() {
 
-            List<String> subjects = new ArrayList<>();
-            subjects.add("Agnar");
-            subjects.add("Elbrus");
-            subjects.add("Medea");
-            subjects.add("Circe");
-            subjects.add("Helios");
-            subjects.add("Demeter");
-            subjects.add("Xena");
-            subjects.add("Boudicca");
+        List<String> subjects = new ArrayList<>();
+        subjects.add("Agnar");
+        subjects.add("Elbrus");
+        subjects.add("Medea");
+        subjects.add("Circe");
+        subjects.add("Helios");
+        subjects.add("Demeter");
+        subjects.add("Xena");
+        subjects.add("Boudicca");
 
-            Random randomizer = new Random();
-            return subjects.get(randomizer.nextInt(subjects.size()));
+        Random randomizer = new Random();
+        return subjects.get(randomizer.nextInt(subjects.size()));
 
     }
 //    //Victory count / wins

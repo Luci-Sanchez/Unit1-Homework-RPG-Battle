@@ -13,7 +13,7 @@ public class Battle {
     //isBattleFinished is set to true when one of the parties is empty, it has lost all its combatants
     private boolean battleFinished;
 
-    public Battle(List<Character> party1, List<Character> party2) {
+    public Battle(Party party1, Party party2) {
         this.party1 = party1;
         this.party2 = party2;
         this.battleFinished = false;
@@ -24,13 +24,29 @@ public class Battle {
 
     public int getMAX_LENGTH() { return MAX_LENGTH; }
 
-    public List<Character> getParty1() { return party1; }
+    public Party getParty1() {
+        return party1;
+    }
 
-    public void setParty1(List<Character> party1) { this.party1 = party1; }
+    public void setParty1(Party party1) {
+        this.party1 = party1;
+    }
 
-    public List<Character> getParty2() { return party2; }
+    public Party getParty2() {
+        return party2;
+    }
 
-    public void setParty2(List<Character> party2) { this.party2 = party2; }
+    public void setParty2(Party party2) {
+        this.party2 = party2;
+    }
+
+    public List<Duel> getBattleDuels() {
+        return battleDuels;
+    }
+
+    public void setBattleDuels(List<Duel> battleDuels) {
+        this.battleDuels = battleDuels;
+    }
 
     public List<Character> getGraveyard() { return graveyard; }
 
