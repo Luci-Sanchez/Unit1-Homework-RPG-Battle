@@ -32,12 +32,21 @@ public class Warrior extends Character implements Attackers {
 
     @Override
     public int bigAttack() {
-
+        //Disminuyo lo consumido de mana
+        this.mana = this.mana - 5;
+        //Defino el daño que realiza
+        //que hay que restarselo al strength o intelligence del contrincante
+        int damage = this.intelligence;
+        return damage;
     }
 
     @Override
     public int smallAttack() {
-
-
+        //Disminuyo lo consumido de mana
+        this.mana = this.mana + 1;
+        //Defino el daño que realiza
+        //que hay que restarselo al strength o intelligence del contrincante
+        int damage = 2;
+        return damage;
     }
 }
