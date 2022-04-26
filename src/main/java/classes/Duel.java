@@ -12,6 +12,10 @@ public class Duel {
     //initial value is false, when one combatant is dead or there is a tie it will start as false again.
     private boolean roundFinished;
 
+    // arr attacks selected, when even attacks check if combatants dead
+
+    // arr String log
+
     public Duel(Character currentCombatant1, Character currentCombatant2) {
         this.currentCombatant1 = currentCombatant1;
         this.currentCombatant2 = currentCombatant2;
