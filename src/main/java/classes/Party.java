@@ -65,8 +65,8 @@ public class Party {
 
     //Yo reemplzaria el addCharacter por esta
     public void addCharacter(Character newCharacter) {
-        /*int sizeParties=5; //Ver que hacer con el tamaño de la party
-        if(characters.size()<sizeParties){*/
+        int sizeParties=5; //Ver que hacer con el tamaño de la party
+        if(characters.size()<sizeParties){
 
                 //check si ya hay jugador con ese nombre
                 List<String> names = new ArrayList<>();
@@ -85,9 +85,10 @@ public class Party {
 
             }
 
-        /*}else{
+        }else{
             System.out.println("Party full!! Let's Play the Fucking Game XD :D XD");
-        }*/
+            break;
+        }
         characters.add(newCharacter);
     }
 
@@ -171,7 +172,7 @@ public class Party {
                 "IsRandomPArty=" + randomPArty + '\n' +
                  "Characters: " + "\n"+
                         "==============\n"+
-                "HOLAA" + Arrays.toString(characters.toArray())+
+                Arrays.toString(characters.toArray())+
                 '}';
 
     }

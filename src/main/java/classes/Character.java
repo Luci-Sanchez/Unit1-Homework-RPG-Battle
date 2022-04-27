@@ -66,7 +66,8 @@ public abstract class Character {
     }*/
 
      @Override    public String toString() {
-         return "id=%s, name=%s, hp=%s, isAlive=%s \n==============\n".formatted(id, name, hp, isAlive);
+         //return "id=%s, name=%s, hp=%s, isAlive=%s \n==============\n".formatted(id, name, hp, isAlive);
+         return "name=%s, hp=%s, isAlive=%s \n==============\n".formatted(name, hp, isAlive);
     }
 
     public int attack(){
