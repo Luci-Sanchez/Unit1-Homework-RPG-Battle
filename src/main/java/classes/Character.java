@@ -39,11 +39,14 @@ public abstract class Character {
         this.hp = hp;
     }
 
-    public boolean isAlive() {
-        return isAlive;
-    }
+    public boolean isAlive() { return isAlive; }
 
-    public void setAlive(boolean alive) {
-        isAlive = alive;
+    //setting the isAlive property depending on character's health points
+    public void setAlive() {
+        if (hp > 0) {
+            isAlive = true;
+        } else {
+            isAlive = false;
+        }
     }
 }

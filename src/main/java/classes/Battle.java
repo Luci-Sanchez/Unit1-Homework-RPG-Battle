@@ -10,8 +10,6 @@ public class Battle {
     private List<Character> graveyard = new ArrayList<>();
     private List<Duel> battleDuels = new ArrayList<>();
 
-    //isDuelFinished, if true, check length of both parties to assess if Battle is finished
-    private boolean duelFinished;
     //isBattleFinished is set to true when one of the parties is empty, it has lost all its combatants
     private boolean battleFinished;
 
@@ -19,7 +17,6 @@ public class Battle {
         this.party1 = party1;
         this.party2 = party2;
         this.battleFinished = false;
-        this.duelFinished = false;
     }
 
     public Party getParty1() {
@@ -46,20 +43,13 @@ public class Battle {
         this.battleDuels = battleDuels;
     }
 
-    public boolean isDuelFinished() {
-        return duelFinished;
-    }
-
-    public void setDuelFinished(boolean duelFinished) {
-        this.duelFinished = duelFinished;
-    }
-
     public List<Character> getGraveyard() { return graveyard; }
 
     public void setGraveyard(List<Character> graveyard) { this.graveyard = graveyard; }
 
     public boolean isBattleFinished() { return battleFinished; }
 
+    //TODO check if array empty
     public void setBattleFinished(boolean battleFinished) { this.battleFinished = battleFinished; }
 }
 

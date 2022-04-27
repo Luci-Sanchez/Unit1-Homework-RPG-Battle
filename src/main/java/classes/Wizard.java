@@ -5,6 +5,8 @@ import interfaces.Attackers;
 public class Wizard extends Character  implements Attackers {
     private int mana;
     private int intelligence;
+    //TODO add stats limits
+
 
     public Wizard(String name, int hp, int mana, int intelligence) {
         super(name, hp);

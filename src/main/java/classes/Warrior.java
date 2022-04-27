@@ -6,6 +6,7 @@ public class Warrior extends Character implements Attackers {
 
     private int stamina;
     private int strength;
+    //TODO add stats limits
 
     public Warrior(String name, int hp, int stamina, int strength) {
         super(name, hp);
