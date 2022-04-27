@@ -46,4 +46,16 @@ public abstract class Character {
     public void setAlive(boolean alive) {
         isAlive = alive;
     }
+
+    public int attack(){
+        return 0;
+    }
+
+    public int attacksFatigue(){
+        return 0;
+    }
+
+    public void chooseCharacter(){
+        
+    }
 }
