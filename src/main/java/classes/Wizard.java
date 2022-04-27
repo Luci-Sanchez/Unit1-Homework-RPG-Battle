@@ -14,6 +14,11 @@ public class Wizard extends Character  implements Attackers {
         this.intelligence = intelligence;
     }
 
+    public Wizard() {
+
+    }
+
+
     public int getMana() {
         return mana;
     }

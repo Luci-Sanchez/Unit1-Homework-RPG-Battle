@@ -8,6 +8,7 @@ public class Utils {
     static Party party1;
     static Party party2;
 
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
     //method to get user input from console
     public static int readInt(String prompt, int userChoices) {
         int input;
@@ -24,13 +25,15 @@ public class Utils {
         return input;
     }
 
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
     //method to simulate clearing out the console
     public static void clearConsole() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println();
         }
     }
 
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
     //method to print a separator with length n
     public static void printSeparator(int n) {
         for (int i = 0; i < n; i++) {
@@ -39,19 +42,22 @@ public class Utils {
         System.out.println();
     }
 
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
+
     //method to print a heading
     public static void printHeading(String title) {
         printSeparator(30);
         System.out.println(title);
         printSeparator(30);
     }
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
 
     //method to stop/pause the game until user enters anything
     public static void anythingToContinue() {
         System.out.println("\nEnter anything to continue...");
         scanner.next();
     }
-
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
 
     //method to start the game
     public static void startGame() {
@@ -60,15 +66,13 @@ public class Utils {
         String name2;
         //print title screen
         clearConsole();
-        printSeparator(40);
         printSeparator(30);
-        System.out.println("AGE OF THE EVIL EMPEROR");
-        System.out.println("TEXT RPG BY FRED FOR CODESTUDENT.NET");
+        System.out.println("Game Started");
+        System.out.println("RPG--GAME");
         printSeparator(30);
-        printSeparator(40);
         anythingToContinue();
 
-        //getting the Partyname1
+        /*//getting the Partyname1
         do {
             clearConsole();
             printHeading("What's your first Party name?");
@@ -83,9 +87,9 @@ public class Utils {
                 nameSet = true;
             }
 
-        } while (!nameSet);
+        } while (!nameSet);*/
 
-        //getting the Partyname2
+        /*//getting the Partyname2
         nameSet = false;
         do {
             clearConsole();
@@ -101,11 +105,17 @@ public class Utils {
                 nameSet = true;
             }
 
-        } while (!nameSet);
+        } while (!nameSet);*/
 
         //create new player object with the name
-        party1 = new Party(name1);
-        party2 = new Party(name2);
+        printSeparator(30);
+        System.out.println("You are now creating your First Party");
+        printSeparator(30);
+        party1 = new Party(setName());
+        printSeparator(30);
+        System.out.println("You are now creating your Second Party");
+        printSeparator(30);
+        party2 = new Party(setName());
 
         //create new Battle with the new 2 parties
         Battle newBattle = new Battle(party1, party2);
@@ -117,17 +127,73 @@ public class Utils {
         //start main game loop
         battleLoop();
     }
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
 
-    //TODO Party Type Menu
+    public static String setName(){
+        boolean nameSet = false;
+        String name;
+        do {
+            printHeading("Which name would you like?");
+            name = scanner.next();
+            //asking the player if he wants to correct his choice
+            clearConsole();
+            printHeading("Your Party name is " + name + ".\nIs that correct?");
+            System.out.println("(1) Yes!");
+            System.out.println("(2) No, I want to change the Party name");
+            int input = readInt("-> ", 2);
+            if (input == 1) {
+                nameSet = true;
+            }
 
+        } while (!nameSet);
+        return name;
+    }
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
+    public static Character setStats(boolean isWarrior){
+        int hp;
+        int stamina;
+        int strength;
+        String name;
+        int intelligence;
+        int mana;
 
+        if (isWarrior) {
+            //Setear lo de Warrior
+            name = setName();
+            printHeading("Warrior con cuantos Hp?");
+            hp = Integer.parseInt(scanner.next());
+            printHeading("Warrior con cuanta Stamina?");
+            stamina = Integer.parseInt(scanner.next());
+            printHeading("Warrior con cuanta Strength?");
+            strength = Integer.parseInt(scanner.next());
+            Warrior customWarrior = new Warrior(name, hp, stamina, strength);
+            printHeading("Warrior CREADO");
+            return customWarrior;
+
+        } else {
+            //Setear lo de Wizard
+            name = setName();
+            printHeading("Wizard con cuantos Hp?");
+            hp = Integer.parseInt(scanner.next());
+            printHeading("Wizard con cuanta Mana?");
+            mana = Integer.parseInt(scanner.next());
+            printHeading("Wizard con cuanta Intelligence ?");
+            intelligence  = Integer.parseInt(scanner.next());
+            Wizard customWizard = new Wizard(name, hp, mana, intelligence);
+            printHeading("Wizard CREADO");
+            return customWizard;
+        }
+
+    }
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
     //method to continue journey
     public static void continueJourney() {
 
     }
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
 
     //printing out the most important character info
-    public static void characterInfo() {
+   /* public static void characterInfo() {
         clearConsole();
         printHeading("CHARACTER INFO");
         System.out.println(player.name + "\tHP: " + player.hp + "/" + player.maxHp);
@@ -144,7 +210,7 @@ public class Utils {
             printSeparator(20);
         }
         anythingToContinue();
-    }
+    }*/
 
     //printing the party type menu
     public static void printPartyTypeMenu() {
@@ -156,6 +222,7 @@ public class Utils {
         System.out.println("(2) Random Party");
         System.out.println("(3) Custom Party");
     }
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
 
     // main game loop
     public static void battleLoop() {
@@ -163,60 +230,49 @@ public class Utils {
             printPartyTypeMenu();
             int input = readInt("-> ", 3);
             if (input == 1) {
-                importParty();
+                //importParty();
+                System.out.println("ImportPARYY");
             } else if (input == 2) {
                 party1.randomMethod();
                 party2.randomMethod();
             } else if (input == 3) {
-                customMenu(party1);
-                customMenu(party2);
+                party1.customMenu();
+                party2.customMenu();
+                System.out.println("CUSTOMIZADA");
 
             }
         }
-
     }
-
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
     //Custom Menu
-    public static void customMenu(Party party) {
-        clearConsole();
-        printHeading("How many Characters?");
-        name1 = scanner.next();
-        //asking the player if he wants to correct his choice
-        clearConsole();
-        //getting the Partyname1
+    /*public static void customMenu(Party party) {
+        int sizeParties=5; //Ver que hacer con el tamaño de la party
+        String name = " ";
+
+        //AL final no preguntamos cuanto. Dejamos que agregue hasta cuando quiera y lo limitamos con lo del add
+
         do {
             clearConsole();
-            printHeading("What's your first Party name?");
-            name1 = scanner.next();
-            //asking the player if he wants to correct his choice
-            clearConsole();
-            printHeading("Your Party name is " + name1 + ".\nIs that correct?");
-            System.out.println("(1) Yes!");
-            System.out.println("(2) No, I want to change the Party name");
-            int input = readInt("-> ", 2);
-            if (input == 1) {
-                nameSet = true;
+            if(party.getCharacters().size() == 0){
+                printHeading("What's your first characters name?");
+                setName();
+
+            }else {
+                name1 = scanner.next();
+                //asking the player if he wants to correct his choice
+                clearConsole();
+                printHeading("Your Party name is " + name1 + ".\nIs that correct?");
+                System.out.println("(1) Yes!");
+                System.out.println("(2) No, I want to change the Party name");
+                int input = readInt("-> ", 2);
+                if (input == 1) {
+                    nameSet = true;
+                }
+                break;
             }
+        } while (party.getCharacters().size() < sizeParties );
 
-        } while (!nameSet);
 
-        //getting the Partyname2
-        nameSet = false;
-        do {
-            clearConsole();
-            printHeading("What's your second Party name?");
-            name2 = scanner.next();
-            //asking the player if he wants to correct his choice
-            clearConsole();
-            printHeading("Your Party name is " + name2 + ".\nIs that correct?");
-            System.out.println("(1) Yes!");
-            System.out.println("(2) No, I want to change the Party name");
-            int input = readInt("-> ", 2);
-            if (input == 1) {
-                nameSet = true;
-            }
-
-        } while (!nameSet);
 
         //create new player object with the name
         party1 = new Party(name1);
@@ -231,6 +287,6 @@ public class Utils {
 
         //start main game loop
         battleLoop();
-    }
+    }*/
 }
 

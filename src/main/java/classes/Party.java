@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import classes.Utils;
+
+import static classes.Utils.*;
 
 public class Party {
     private String partyName;
@@ -28,7 +31,6 @@ public class Party {
     }
 
     //Constructor 4 Random - (only name)
-
     public Party(String partyName, boolean randomParty) {
         this.partyName = partyName;
         randomMethod();
@@ -66,6 +68,7 @@ public class Party {
     //Yo reemplzaria el addCharacter por esta
     public void addCharacter(Character newCharacter) {
         int sizeParties=5; //Ver que hacer con el tamaño de la party
+        System.out.println(characters.size());
         if(characters.size()<sizeParties){
 
                 //check si ya hay jugador con ese nombre
@@ -83,13 +86,12 @@ public class Party {
                     //Creo que no hace falta pero por las deudas
                     newCharacter.setName(newCharacter.getName());
 
-            }
-
+                }
+                characters.add(newCharacter);
         }else{
             System.out.println("Party full!! Let's Play the Fucking Game XD :D XD");
-            break;
         }
-        characters.add(newCharacter);
+
     }
 
     ////////////////////////////////////
@@ -141,6 +143,40 @@ public class Party {
         return subjects.get(randomizer.nextInt(subjects.size()));
 
     }
+
+    public  List customMenu() {
+        List<Character> customList = new ArrayList<>();
+        int sizeParties=5; //Ver que hacer con el tamaño de la party
+        String name = " ";
+        boolean typeSet = false;
+        boolean isWarrior = false;
+
+        do {
+            //Preguntar si es warrior o wizard
+                printHeading("Who is going to the join you in the quest for the secret code?");
+                System.out.println("(1) A Strong Warrior!");
+                System.out.println("(2) or a Clever Wizard");
+                int input = readInt("-> ", 2);
+                if (input == 1 ) {
+                    isWarrior = true;
+                    typeSet = true;
+                } else if (input == 2) {
+                    isWarrior = false;
+                    typeSet = true;
+                }
+
+        }while (!typeSet );
+
+        addCharacter(setStats(isWarrior));
+        return customList;
+
+    }
+
+
+
+
+
+
 
 //    //Victory count / wins
 //    public int getPartyWins() {

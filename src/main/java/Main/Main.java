@@ -1,9 +1,7 @@
 package Main;
 
+import classes.*;
 import classes.Character;
-import classes.Party;
-import classes.Warrior;
-import classes.Wizard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,19 +26,25 @@ public class Main {
         Wizard ana= new Wizard("Jofi", 1021,2310,12332);
         sisters.addCharacter(ana);
 
-        Wizard ana1= new Wizard("Ana", 1021,2310,12332);
-        sisters.addCharacter(ana1);
 
-        Wizard ana2= new Wizard("Paz", 1021,2310,12332);
-        sisters.addCharacter(ana2);
+        Wizard lisa= new Wizard("lisa", 1021,2310,12332);
+        sisters.addCharacter(lisa);
 
-        Wizard ana3= new Wizard("Jofi", 1021,2310,12332);
-        sisters.addCharacter(ana3);
+        Wizard itallia= new Wizard("italia", 1021,2310,12332);
+        sisters.addCharacter(itallia);
 
 
         System.out.println(sisters);
         //System.out.println(sisters.getCharacters());
+        Utils utilsw = new Utils();
+
+        //utilsw.setName();
+        utilsw.startGame();
+
+
 
 
     }
+
+
 }

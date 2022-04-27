@@ -15,6 +15,9 @@ public abstract class Character {
         this.isAlive = true;
     }
 
+    public Character() {
+    }
+
     public String getId() {
         return id;
     }
