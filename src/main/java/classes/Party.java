@@ -139,6 +139,7 @@ public class Party {
         return subjects.get(randomizer.nextInt(subjects.size()));
 
     }
+
 //    //Victory count / wins
 //    public int getPartyWins() {
 //        return partyWins; //Statistics? and %
