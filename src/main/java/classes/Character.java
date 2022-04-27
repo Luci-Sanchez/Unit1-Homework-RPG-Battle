@@ -49,4 +49,23 @@ public abstract class Character {
             isAlive = false;
         }
     }
+
+    /*@Override
+    public String toString() {
+        return "\t" + "Character:" +
+                "\t" +"id='" + id + '\n' +
+                "\t" +"name='" + name + '\n' +
+                "\t" +"hp=" + hp +'\n' +
+                "\t" +"isAlive=" + isAlive + '\n' +
+                "==============\n";
+    }*/
+
+   /* @Override    public String toString() {
+        return String.format("%s, %s, %s, %s, %s",
+                "id='" + id + '\t', ", name='" + name + '\t', ", hp=" + hp + '\t' , ", isAlive=" + isAlive +'\n', "\n ==============\n");
+    }*/
+
+     @Override    public String toString() {
+         return "id=%s, name=%s, hp=%s, isAlive=%s \n==============\n".formatted(id, name, hp, isAlive);
+    }
 }
