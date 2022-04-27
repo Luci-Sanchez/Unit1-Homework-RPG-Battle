@@ -123,6 +123,7 @@ public class Party {
         return randomList;
     }
 
+
     public String randomName() {
 
         List<String> subjects = new ArrayList<>();
