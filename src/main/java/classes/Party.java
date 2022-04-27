@@ -1,6 +1,7 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -54,11 +55,43 @@ public class Party {
     }
 
     //Add Character
-    public void addCharacter(Character character) {
+   /* public void addCharacter(Character character) {
         //Validar tamaño Party/ espacios nulos?
         //VAlidar si nombre existe - +Jr.
         characters.add(character);
+    }*/
+
+    ////////////////////////////
+
+    //Yo reemplzaria el addCharacter por esta
+    public void addCharacter(Character newCharacter) {
+        /*int sizeParties=5; //Ver que hacer con el tamaño de la party
+        if(characters.size()<sizeParties){*/
+
+                //check si ya hay jugador con ese nombre
+                List<String> names = new ArrayList<>();
+                for(Character player : characters){
+                    names.add(player.getName());
+                }
+
+                if(names.contains(newCharacter.getName())){
+                    System.out.println("A player with this name already in this Party");
+                    System.out.println(String.format("But, don't worry, %s Junior will be created!", newCharacter.getName()));
+                    newCharacter.setName(newCharacter.getName()+" Jr.");
+                }else {
+                    System.out.println(String.format("Great! %s is available..", newCharacter.getName()));
+                    //Creo que no hace falta pero por las deudas
+                    newCharacter.setName(newCharacter.getName());
+
+            }
+
+        /*}else{
+            System.out.println("Party full!! Let's Play the Fucking Game XD :D XD");
+        }*/
+        characters.add(newCharacter);
     }
+
+    ////////////////////////////////////
 
     //Remove character - form party in battle --> Graveyard
     public void removeCharacter(Character character) {
@@ -124,4 +157,20 @@ public class Party {
 //    public void setPartyLosses(int partyLosses) {
 //        this.partyLosses = partyLosses;
 //    }
+
+
+    @Override
+    public String toString() {
+        /*for(int i=0; i<characters.size(); i++){
+            System.out.println(characters.get(i).toString());
+        };*/
+        return
+                "\nPartyName: " + partyName + '\n' +
+                "IsRandomPArty=" + randomPArty + '\n' +
+                 "Characters: " + "\n"+
+                        "==============\n"+
+                "HOLAA" + Arrays.toString(characters.toArray())+
+                '}';
+
+    }
 }
