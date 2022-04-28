@@ -1,7 +1,9 @@
 package interfaces;
 
-public interface Attackers {
-    int bigAttack();   //Añadir Variable(?)
+import classes.Character;
 
-    int smallAttack(); //Añadir Variable(?)
+public interface Attackers {
+    void bigAttack(Character receiver);
+
+    void smallAttack(Character receiver);
 }
