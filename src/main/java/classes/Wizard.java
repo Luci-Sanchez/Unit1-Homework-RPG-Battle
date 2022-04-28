@@ -2,7 +2,7 @@ package classes;
 
 import interfaces.Attackers;
 
-public class Wizard extends Character  implements Attackers {
+public class Wizard extends Character implements Attackers {
     private int mana;
     private int intelligence;
     //TODO add stats limits
@@ -36,7 +36,6 @@ public class Wizard extends Character  implements Attackers {
     }
 
 
-
     @Override
     public int bigAttack() {
         //Disminuyo lo consumido de mana
@@ -55,5 +54,11 @@ public class Wizard extends Character  implements Attackers {
         //que hay que restarselo al strength o intelligence del contrincante
         int damage = 2;
         return damage;
+    }
+
+    @Override
+    public String toString() {
+        //return "id=%s, name=%s, hp=%s, isAlive=%s \n==============\n".formatted(id, name, hp, isAlive);
+        return "Name: %s, Hp: %s, Mana: %s, Intelligence: %s \n==============\n".formatted(getName(), getHp(), mana, intelligence);
     }
 }

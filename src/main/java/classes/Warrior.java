@@ -51,7 +51,13 @@ public class Warrior extends Character implements Attackers {
         //Restablezco la stamina + 1 punto
         this.stamina = this.stamina + 1;
         //Defino el daño que realiza: es la mitad del strength sin decimales.
-        int damage = Math.round(this.strength/2);
+        int damage = Math.round(this.strength / 2);
         return damage;
+    }
+
+    @Override
+    public String toString() {
+        //return "id=%s, name=%s, hp=%s, isAlive=%s \n==============\n".formatted(id, name, hp, isAlive);
+        return "Name: %s, Hp: %s, Stamina: %s, Strength: %s \n==============\n".formatted(getName(), getHp(), stamina, strength);
     }
 }
