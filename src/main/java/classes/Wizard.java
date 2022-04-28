@@ -37,28 +37,29 @@ public class Wizard extends Character implements Attackers {
 
 
     @Override
-    public int bigAttack() {
+    public void bigAttack(Character receiver) {
         //Disminuyo lo consumido de mana
         this.mana = this.mana - 5;
         //Defino el daño que realiza
         //que hay que restarselo al strength o intelligence del contrincante
         int damage = this.intelligence;
-        return damage;
+        receiver.setHp(getHp()-damage);
     }
 
     @Override
-    public int smallAttack() {
+    public void smallAttack(Character receiver) {
         //Disminuyo lo consumido de mana
         this.mana = this.mana + 1;
         //Defino el daño que realiza
         //que hay que restarselo al strength o intelligence del contrincante
         int damage = 2;
-        return damage;
+        receiver.setHp(getHp()-damage);
     }
 
     @Override
     public String toString() {
-        //return "id=%s, name=%s, hp=%s, isAlive=%s \n==============\n".formatted(id, name, hp, isAlive);
+
         return "Name: %s, Hp: %s, Mana: %s, Intelligence: %s \n==============\n".formatted(getName(), getHp(), mana, intelligence);
     }
+
 }
