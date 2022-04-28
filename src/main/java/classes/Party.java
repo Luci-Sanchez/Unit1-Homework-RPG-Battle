@@ -153,11 +153,10 @@ public class Party {
             System.out.println(characters.get(i).toString());
         };*/
         return
-                "\nPartyName: " + partyName + '\n' +
+                "PartyName: " + partyName + '\n' +
                         "Characters: " + "\n" +
                         "==============\n" +
-                        Arrays.toString(characters.toArray()) +
-                        '}';
+                        Arrays.toString(characters.toArray());
 
     }
 

@@ -2,6 +2,8 @@ package classes;
 
 import java.util.Scanner;
 
+import static classes.Utils.duelLoop;
+
 public class Utils {
     public static boolean isRunning;
     static Scanner scanner = new Scanner(System.in);
@@ -278,13 +280,6 @@ public class Utils {
             System.out.println(party2.toString());
             printSeparator(30);
 
-            // break; //go to attack
-
-//                if (party1.getCharacters().size() <= 5 && party2.getCharacters().size() <= 5) {
-//                    printHeading("Choose the brave combatants who will duel for the golden script");
-//                    Duel newDuel = new Duel(selectCombatant(party1), selectCombatant(party2));
-//                }
-
         } else if (input == 3) {
             party1.customMethod();
             System.out.println(party1.toString());
@@ -303,18 +298,26 @@ public class Utils {
 
             printHeading("Choose the brave combatants who will duel for the golden script");
             Duel newDuel = new Duel(selectCombatant(party1), selectCombatant(party2));
+
+
         }
 
+        //setting isRunning to true, so the game loop can continue
+        isRunning = true;
 
-        //}
-
-//        //setting isRunning to true, so the game loop can continue
-//        isRunning = true;
-//
-//        //start main game loop
-//        duelLoop();
+        //start main game loop
+        duelLoop();
 
     }
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
+
+    public static void duelLoop(){
+
+
+
+    }
+
+
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
 
     // method to select a combatant of each party to send to the duel
