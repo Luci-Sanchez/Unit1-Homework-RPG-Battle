@@ -18,6 +18,6 @@ Game RULES:
 
 - When a round is over the winner returns to the party and the loser is removed and sent to the graveyard. Then, you can choose thecombatants for the next duel.
 
-- When a party looses all their members, a winner party is declared!
+- When a party loses all their members, a winner party is declared!
 
 ENJOY PLAYING!!
