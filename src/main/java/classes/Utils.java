@@ -19,7 +19,7 @@ public class Utils {
                 input = Integer.parseInt(scanner.next());
             } catch (Exception e) {
                 input = -1;
-                System.out.println("Please enter an integer!");
+                System.out.println("Please enter a valid integer!");
             }
         } while (input < 1 || input > userChoices);
         return input;
@@ -268,16 +268,16 @@ public class Utils {
             party1.randomMethod();
             printSeparator(30);
             System.out.println("Party1 random Created");
-
             System.out.println(party1.toString());
             printSeparator(30);
+
             System.out.println("Lets Create party2 with ransom Method");
             party2.randomMethod();
             printSeparator(30);
             System.out.println("Party2 random Created");
-
             System.out.println(party2.toString());
             printSeparator(30);
+
             // break; //go to attack
 
 //                if (party1.getCharacters().size() <= 5 && party2.getCharacters().size() <= 5) {
@@ -287,8 +287,10 @@ public class Utils {
 
         } else if (input == 3) {
             party1.customMethod();
+            System.out.println(party1.toString());
+
             party2.customMethod();
-            System.out.println("CUSTOMIZADA");
+            System.out.println(party2.toString());
             // break;
         } else {
             System.out.println("Select 1, 2 or 3 !!");
@@ -321,7 +323,7 @@ public class Utils {
         boolean isCombatantSet = false;
 
         while (!isCombatantSet) {
-            System.out.println("Choose combatant from the" + party.getPartyName() + "Party");
+            System.out.println("Choose combatant from the " + party.getPartyName() + "Party");
             printSeparator(20);
 
             for (int i = 0; i < party.getCharacters().size(); i++) {

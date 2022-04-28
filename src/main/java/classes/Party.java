@@ -42,7 +42,7 @@ public class Party {
     public void addCharacter(Character newCharacter) {
         int MAX_SIZE_PARTY = 5; //Max size of a party
         System.out.println("Current party size is: " + characters.size());
-        if (characters.size() < MAX_SIZE_PARTY) {
+        if (characters.size() <= MAX_SIZE_PARTY) {
 
             //List of all character names in that party
             List<String> names = new ArrayList<>();
@@ -76,10 +76,8 @@ public class Party {
     public void randomMethod() {
         Random isWarrior = new Random();
         Random randomInt = new Random();
-        int partySize = 0;
 
-        printHeading("Choose a party size from 1 to 5: ");
-        partySize = Integer.parseInt(scanner.next());
+        int partySize = readInt("Choose a party size from 1 to 5: ", 5);
 
 
         for (int i = 0; i < partySize; i++) {
@@ -121,14 +119,18 @@ public class Party {
 
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
 
-    public List customMethod() {
+    public void customMethod() {
         List<Character> customList = new ArrayList<>();
         int MAX_SIZE_PARTY = 5;
         String name = " ";
         boolean typeSet = false;
         boolean isWarrior = false;
 
-        do {
+
+        int partySize = readInt("Choose a party size from 1 to 5: ", 5);
+
+        for (int i = 0; i < partySize; i++) {
+            //do {
             printHeading("Who is going to the join you in the quest for the secret code?");
             System.out.println("(1) A Strong Warrior!");
             System.out.println("(2) or a Clever Wizard");
@@ -140,12 +142,9 @@ public class Party {
                 isWarrior = false;
                 typeSet = true;
             }
-
-        } while (!typeSet);
-
-        addCharacter(setStats(isWarrior));
-        return customList;
-
+            addCharacter(setStats(isWarrior));
+            //} while (!typeSet);
+        }
     }
 
     @Override
