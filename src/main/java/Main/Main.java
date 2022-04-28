@@ -31,7 +31,6 @@ public class Main {
         sisters.addCharacter(ana);
         System.out.println(sisters);
         //System.out.println(sisters.getCharacters());
-
-
+        
     }
 }
