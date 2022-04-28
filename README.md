@@ -10,14 +10,14 @@ We have two types of characters, warriors and wizards who have different attribu
 
 Game RULES:
 
-- The characters are grouped in parties and the battle is between 2 parties. So before the battle could start you need to add warriors or wizards     in both parties (could be mixed with warriors and wizards).
+- The characters are grouped in parties and the battle is between 2 parties. So before the battle begins you will need to add warriors or wizards in both parties (could be mixed with warriors and wizards).
 
 - The battles are 1 vs 1. So you can choose between members of the party to duel another member from the rival party.
 
-- The battle is by rounds, in each round both combatants attack at the same time (so you even if one combatant do the killing blow both will take     damage). So the combat could end in a tie.
+- The battle happens by rounds, in each round both combatants attack at the same time (so you even if one combatant does the killing blow both will take     damage). So the combat could end in a tie.
 
-- When the battle is over the winner return to the party and the loser is removed and sent to the graveyard. Then you can choose the                 combatants for the next duel.
+- When a round is over the winner returns to the party and the loser is removed and sent to the graveyard. Then, you can choose thecombatants for the next duel.
 
-- When a party loose all their members, a winner party is declared.
+- When a party loose all their members, a winner party is declared!
 
 ENJOY PLAYING!!
