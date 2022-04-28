@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import classes.Utils;
 
 import static classes.Utils.*;
 
@@ -16,16 +15,14 @@ public class Party {
     //private int partyWins;
     //private int partyLosses;
 
-
-    //Constructor 4 Import (all)
-
+    ////////////////////////////////////////////////////////////Contructors/////////////////////////////////////////
+    //Constructor 4 Import list of charachters
     public Party(String partyName, List<Character> characters) {
         this.partyName = partyName;
         this.characters = characters;
     }
 
     //Constructor 4 Customizable - (only name)
-
     public Party(String partyName) {
         this.partyName = partyName;
     }
@@ -35,7 +32,7 @@ public class Party {
         this.partyName = partyName;
         randomMethod();
     }
-
+    ///////////////////////////////////////////////////////////Getters and setters///////////////////////////////////////
 
     //Party Name
     public String getPartyName() {
@@ -56,21 +53,17 @@ public class Party {
         this.characters = characters;  //Import Array
     }
 
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
+
     //Add Character
    /* public void addCharacter(Character character) {
-        //Validar tamaño Party/ espacios nulos?
-        //VAlidar si nombre existe - +Jr.
         characters.add(character);
     }*/
 
-    ////////////////////////////
-
-    //Yo reemplzaria el addCharacter por esta
     public void addCharacter(Character newCharacter) {
-        int sizeParties=5; //Ver que hacer con el tamaño de la party
-        System.out.println(characters.size());
+        int sizeParties=5; //Max size of a party
+        System.out.println("Tamaño del characters" + characters.size());
         if(characters.size()<sizeParties){
-
                 //check si ya hay jugador con ese nombre
                 List<String> names = new ArrayList<>();
                 for(Character player : characters){
@@ -85,7 +78,6 @@ public class Party {
                     System.out.println(String.format("Great! %s is available..", newCharacter.getName()));
                     //Creo que no hace falta pero por las deudas
                     newCharacter.setName(newCharacter.getName());
-
                 }
                 characters.add(newCharacter);
         }else{
@@ -94,13 +86,11 @@ public class Party {
 
     }
 
-    ////////////////////////////////////
-
     //Remove character - form party in battle --> Graveyard
     public void removeCharacter(Character character) {
         characters.remove(character);
     }
-
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
     //Random Method
     public List randomMethod() {
         List<Character> randomList = new ArrayList<>();

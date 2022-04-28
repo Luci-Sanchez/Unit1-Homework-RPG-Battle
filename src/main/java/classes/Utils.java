@@ -62,8 +62,8 @@ public class Utils {
     //method to start the game
     public static void startGame() {
         boolean nameSet = false;
-        String name1;
-        String name2;
+        String name1 = " ";
+        String name2 = " ";
         //print title screen
         clearConsole();
         printSeparator(30);
@@ -107,15 +107,18 @@ public class Utils {
 
         } while (!nameSet);*/
 
-        //create new player object with the name
         printSeparator(30);
         System.out.println("You are now creating your First Party");
         printSeparator(30);
-        party1 = new Party(setName());
+        //party1 = new Party(setName());
+        party1 = new Party(setAttribute("You are now setting your first party name", name1));
+        printHeading("Your Party-> " + party1.getPartyName() + "<- is Created");
         printSeparator(30);
         System.out.println("You are now creating your Second Party");
         printSeparator(30);
-        party2 = new Party(setName());
+        //party2 = new Party(setName());
+        party2 = new Party(setAttribute("You are now setting your second party name", name2));
+        printHeading("Your Party-> " + party2.getPartyName() + "<- is Created");
 
         //create new Battle with the new 2 parties
         Battle newBattle = new Battle(party1, party2);
@@ -147,6 +150,27 @@ public class Utils {
 
         } while (!nameSet);
         return name;
+    }
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
+    public static String setAttribute(String header, String attribute){
+        //va en header lo que ve el jugador y attribute
+        boolean attributeSet = false;
+        String whatWeAreSetting;
+        do {
+            printHeading(header);
+            whatWeAreSetting = scanner.next();
+            //asking the player if he wants to correct his choice
+            clearConsole();
+            printHeading("Your"  + attribute +   " is " + whatWeAreSetting + ".\nIs that correct?");
+            System.out.println("(1) Yes!");
+            System.out.println("(2) No, I want to correct it");
+            int input = readInt("-> ", 2);
+            if (input == 1) {
+                attributeSet = true;
+            }
+
+        } while (!attributeSet);
+        return whatWeAreSetting;
     }
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
     public static Character setStats(boolean isWarrior){
@@ -214,8 +238,9 @@ public class Utils {
 
     //printing the party type menu
     public static void printPartyTypeMenu() {
-        clearConsole();
-        printHeading("MENU");
+        //clearConsole();
+        //printHeading("MENU");
+        printHeading("PartyTypeMenu");
         System.out.println("Choose a Party type:");
         printSeparator(20);
         System.out.println("(1) Import Party");
@@ -226,23 +251,34 @@ public class Utils {
 
     // main game loop
     public static void battleLoop() {
+        System.out.println("In the Battle loop");
         while (isRunning) {
+            System.out.println("In the While loop of Battleloop");
             printPartyTypeMenu();
             int input = readInt("-> ", 3);
             if (input == 1) {
                 //importParty();
                 System.out.println("ImportPARYY");
+                break;
             } else if (input == 2) {
+                System.out.println("Lets Create party1 with random Method");
                 party1.randomMethod();
+                System.out.println("Party1 random Created");
+                System.out.println("Lets Create party2 with ransom Method");
                 party2.randomMethod();
+                System.out.println("Party2 random Created");
+                break; //go to attack
             } else if (input == 3) {
                 party1.customMenu();
                 party2.customMenu();
                 System.out.println("CUSTOMIZADA");
-
+                break;
             }
         }
+        selectCombatant();
     }
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
+
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
     //Custom Menu
     /*public static void customMenu(Party party) {
