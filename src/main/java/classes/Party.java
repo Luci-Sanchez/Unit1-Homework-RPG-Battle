@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import static classes.Utils.*;
+
 public class Party {
     private String partyName;
     private List<Character> characters = new ArrayList<>(); // In Constructor this.Characters = new Character[3]; // Or ArrayList
@@ -13,27 +15,24 @@ public class Party {
     //private int partyWins;
     //private int partyLosses;
 
-
-    //Constructor 4 Import (all)
-
+    ////////////////////////////////////////////////////////////Contructors/////////////////////////////////////////
+    //Constructor 4 Import list of charachters
     public Party(String partyName, List<Character> characters) {
         this.partyName = partyName;
         this.characters = characters;
     }
 
     //Constructor 4 Customizable - (only name)
-
     public Party(String partyName) {
         this.partyName = partyName;
     }
 
     //Constructor 4 Random - (only name)
-
     public Party(String partyName, boolean randomParty) {
         this.partyName = partyName;
         randomMethod();
     }
-
+    ///////////////////////////////////////////////////////////Getters and setters///////////////////////////////////////
 
     //Party Name
     public String getPartyName() {
@@ -54,20 +53,17 @@ public class Party {
         this.characters = characters;  //Import Array
     }
 
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
+
     //Add Character
    /* public void addCharacter(Character character) {
-        //Validar tamaño Party/ espacios nulos?
-        //VAlidar si nombre existe - +Jr.
         characters.add(character);
     }*/
 
-    ////////////////////////////
-
-    //Yo reemplzaria el addCharacter por esta
     public void addCharacter(Character newCharacter) {
-        /*int sizeParties=5; //Ver que hacer con el tamaño de la party
-        if(characters.size()<sizeParties){*/
-
+        int sizeParties=5; //Max size of a party
+        System.out.println("Tamaño del characters" + characters.size());
+        if(characters.size()<sizeParties){
                 //check si ya hay jugador con ese nombre
                 List<String> names = new ArrayList<>();
                 for(Character player : characters){
@@ -82,22 +78,19 @@ public class Party {
                     System.out.println(String.format("Great! %s is available..", newCharacter.getName()));
                     //Creo que no hace falta pero por las deudas
                     newCharacter.setName(newCharacter.getName());
-
-            }
-
-        /*}else{
+                }
+                characters.add(newCharacter);
+        }else{
             System.out.println("Party full!! Let's Play the Fucking Game XD :D XD");
-        }*/
-        characters.add(newCharacter);
-    }
+        }
 
-    ////////////////////////////////////
+    }
 
     //Remove character - form party in battle --> Graveyard
     public void removeCharacter(Character character) {
         characters.remove(character);
     }
-
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
     //Random Method
     public List randomMethod() {
         List<Character> randomList = new ArrayList<>();
@@ -123,6 +116,7 @@ public class Party {
         return randomList;
     }
 
+
     public String randomName() {
 
         List<String> subjects = new ArrayList<>();
@@ -139,6 +133,40 @@ public class Party {
         return subjects.get(randomizer.nextInt(subjects.size()));
 
     }
+
+    public  List customMenu() {
+        List<Character> customList = new ArrayList<>();
+        int sizeParties=5; //Ver que hacer con el tamaño de la party
+        String name = " ";
+        boolean typeSet = false;
+        boolean isWarrior = false;
+
+        do {
+            //Preguntar si es warrior o wizard
+                printHeading("Who is going to the join you in the quest for the secret code?");
+                System.out.println("(1) A Strong Warrior!");
+                System.out.println("(2) or a Clever Wizard");
+                int input = readInt("-> ", 2);
+                if (input == 1 ) {
+                    isWarrior = true;
+                    typeSet = true;
+                } else if (input == 2) {
+                    isWarrior = false;
+                    typeSet = true;
+                }
+
+        }while (!typeSet );
+
+        addCharacter(setStats(isWarrior));
+        return customList;
+
+    }
+
+
+
+
+
+
 
 //    //Victory count / wins
 //    public int getPartyWins() {
@@ -170,7 +198,7 @@ public class Party {
                 "IsRandomPArty=" + randomPArty + '\n' +
                  "Characters: " + "\n"+
                         "==============\n"+
-                "HOLAA" + Arrays.toString(characters.toArray())+
+                Arrays.toString(characters.toArray())+
                 '}';
 
     }

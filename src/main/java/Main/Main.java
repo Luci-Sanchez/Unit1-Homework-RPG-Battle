@@ -1,20 +1,19 @@
 package Main;
 
+import classes.*;
 import classes.Character;
-import classes.Party;
-import classes.Warrior;
-import classes.Wizard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static classes.Utils.startGame;
+
 public class Main {
     public static void main(String[] args) {
-        Warrior jofi= new Warrior("Jofi", 10,200,122);
+        /*Warrior jofi= new Warrior("Jofi", 10,200,122);
         Wizard paz= new Wizard("Paz", 101,210,1232);
-        //Wizard paz= new Wizard("Paz", 101,210,1232);
-        //List<Character> list = Arrays.asList(jofi , paz);
+
         List<Character> list = new ArrayList<>();
         list.add(jofi);
         list.add(paz);
@@ -24,13 +23,25 @@ public class Main {
 
         System.out.println(String.format("%s, %s, %s", "Party" ,sisters.getPartyName(), "fue creada"));
         System.out.println("Info: "+ sisters);
-        System.out.println(":.....:");
-
+        System.out.println(":..AGREGO CHARACTERS...:");
 
         Wizard ana= new Wizard("Jofi", 1021,2310,12332);
         sisters.addCharacter(ana);
+
+
+        Wizard lisa= new Wizard("lisa", 1021,2310,12332);
+        sisters.addCharacter(lisa);
+
+        Wizard itallia= new Wizard("italia", 1021,2310,12332);
+        sisters.addCharacter(itallia);
+
+
         System.out.println(sisters);
-        //System.out.println(sisters.getCharacters());
-        
+        //System.out.println(sisters.getCharacters());*/
+
+        startGame();
+
     }
+
+
 }

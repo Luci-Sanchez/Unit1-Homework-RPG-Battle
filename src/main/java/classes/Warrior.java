@@ -14,6 +14,10 @@ public class Warrior extends Character implements Attackers {
         this.strength = strength;
     }
 
+    public Warrior() {
+
+    }
+
     public int getStamina() {
         return stamina;
     }
