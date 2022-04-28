@@ -19,7 +19,7 @@ public class Utils {
                 input = Integer.parseInt(scanner.next());
             } catch (Exception e) {
                 input = -1;
-                System.out.println("Please enter an integer!");
+                System.out.println("Please enter a valid integer!");
             }
         } while (input < 1 || input > userChoices);
         return input;
@@ -62,9 +62,7 @@ public class Utils {
     //method to start the game
     public static void startGame() {
         boolean nameSet = false;
-        String name1 = " ";
-        String name2 = " ";
-        //print title screen
+        //todo print title screen
         clearConsole();
         printSeparator(30);
         System.out.println("Game Started");
@@ -107,22 +105,20 @@ public class Utils {
 
         } while (!nameSet);*/
 
+        //naming both parties who will battle
         printSeparator(30);
         System.out.println("You are now creating your First Party");
         printSeparator(30);
-        //party1 = new Party(setName());
-        party1 = new Party(setAttribute("You are now setting your first party name", name1));
+        party1 = new Party(setAttribute("Name the First Party which will follow you to battle: ", "Party name"));
         printHeading("Your Party-> " + party1.getPartyName() + "<- is Created");
         printSeparator(30);
         System.out.println("You are now creating your Second Party");
         printSeparator(30);
-        //party2 = new Party(setName());
-        party2 = new Party(setAttribute("You are now setting your second party name", name2));
+        party2 = new Party(setAttribute("Name the Second Party which will follow you to battle: ", "Party name"));
         printHeading("Your Party-> " + party2.getPartyName() + "<- is Created");
 
         //create new Battle with the new 2 parties
         Battle newBattle = new Battle(party1, party2);
-
 
         //setting isRunning to true, so the game loop can continue
         isRunning = true;
@@ -132,7 +128,7 @@ public class Utils {
     }
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
 
-    public static String setName(){
+    public static String setName() {
         boolean nameSet = false;
         String name;
         do {
@@ -151,17 +147,19 @@ public class Utils {
         } while (!nameSet);
         return name;
     }
+
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
-    public static String setAttribute(String header, String attribute){
+    public static String setAttribute(String header, String attribute) {
         //va en header lo que ve el jugador y attribute
         boolean attributeSet = false;
         String whatWeAreSetting;
+
         do {
             printHeading(header);
             whatWeAreSetting = scanner.next();
             //asking the player if he wants to correct his choice
             clearConsole();
-            printHeading("Your"  + attribute +   " is " + whatWeAreSetting + ".\nIs that correct?");
+            printHeading("Your " + attribute + " is " + whatWeAreSetting + ".\nIs that correct?");
             System.out.println("(1) Yes!");
             System.out.println("(2) No, I want to correct it");
             int input = readInt("-> ", 2);
@@ -172,43 +170,45 @@ public class Utils {
         } while (!attributeSet);
         return whatWeAreSetting;
     }
+
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
-    public static Character setStats(boolean isWarrior){
+    public static Character setStats(boolean isWarrior) {
         int hp;
         int stamina;
         int strength;
-        String name;
+        String name = "";
         int intelligence;
         int mana;
 
         if (isWarrior) {
             //Setear lo de Warrior
-            name = setName();
-            printHeading("Warrior con cuantos Hp?");
+            name = setAttribute("Which warrior name would you like?", "warrior's name");
+            printHeading("Choose your warrior's Health Points:");
             hp = Integer.parseInt(scanner.next());
-            printHeading("Warrior con cuanta Stamina?");
+            printHeading("Choose your warrior's Stamina:");
             stamina = Integer.parseInt(scanner.next());
-            printHeading("Warrior con cuanta Strength?");
+            printHeading("Choose your warrior's Strength:");
             strength = Integer.parseInt(scanner.next());
             Warrior customWarrior = new Warrior(name, hp, stamina, strength);
-            printHeading("Warrior CREADO");
+            printHeading("Your warrior has been created successfully!");
             return customWarrior;
 
         } else {
             //Setear lo de Wizard
-            name = setName();
-            printHeading("Wizard con cuantos Hp?");
+            name = setAttribute("Which wizard name would you like?", "wizard's name");
+            printHeading("Choose your wizard's Health Points:");
             hp = Integer.parseInt(scanner.next());
-            printHeading("Wizard con cuanta Mana?");
+            printHeading("Choose your wizard's Mana:");
             mana = Integer.parseInt(scanner.next());
-            printHeading("Wizard con cuanta Intelligence ?");
-            intelligence  = Integer.parseInt(scanner.next());
+            printHeading("Choose your wizard's Intelligence:");
+            intelligence = Integer.parseInt(scanner.next());
             Wizard customWizard = new Wizard(name, hp, mana, intelligence);
-            printHeading("Wizard CREADO");
+            printHeading("Your wizard has been created successfully!");
             return customWizard;
         }
 
     }
+
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
     //method to continue journey
     public static void continueJourney() {
@@ -252,77 +252,99 @@ public class Utils {
     // main game loop
     public static void battleLoop() {
         System.out.println("In the Battle loop");
-        while (isRunning) {
-            System.out.println("In the While loop of Battleloop");
+        boolean arePartiesSet = false;
+        int numberOfSetParties = 1;
+
+        //while (numberOfSetParties<=2) {
+        System.out.println("In the While loop of Battleloop");
+        printPartyTypeMenu();
+        int input = readInt("-> ", 3);
+        if (input == 1) {
+            //importParty();
+            System.out.println("ImportPARYY");
+            // break;
+        } else if (input == 2) {
+            System.out.println("Lets Create party1 with random Method");
+            party1.randomMethod();
+            printSeparator(30);
+            System.out.println("Party1 random Created");
+            System.out.println(party1.toString());
+            printSeparator(30);
+
+            System.out.println("Lets Create party2 with ransom Method");
+            party2.randomMethod();
+            printSeparator(30);
+            System.out.println("Party2 random Created");
+            System.out.println(party2.toString());
+            printSeparator(30);
+
+            // break; //go to attack
+
+//                if (party1.getCharacters().size() <= 5 && party2.getCharacters().size() <= 5) {
+//                    printHeading("Choose the brave combatants who will duel for the golden script");
+//                    Duel newDuel = new Duel(selectCombatant(party1), selectCombatant(party2));
+//                }
+
+        } else if (input == 3) {
+            party1.customMethod();
+            System.out.println(party1.toString());
+
+            party2.customMethod();
+            System.out.println(party2.toString());
+            // break;
+        } else {
+            System.out.println("Select 1, 2 or 3 !!");
             printPartyTypeMenu();
-            int input = readInt("-> ", 3);
-            if (input == 1) {
-                //importParty();
-                System.out.println("ImportPARYY");
-                break;
-            } else if (input == 2) {
-                System.out.println("Lets Create party1 with random Method");
-                party1.randomMethod();
-                System.out.println("Party1 random Created");
-                System.out.println("Lets Create party2 with ransom Method");
-                party2.randomMethod();
-                System.out.println("Party2 random Created");
-                break; //go to attack
-            } else if (input == 3) {
-                party1.customMenu();
-                party2.customMenu();
-                System.out.println("CUSTOMIZADA");
-                break;
-            }
         }
-        selectCombatant();
+
+        //Only allow players to continue if party size is bigger than 1 and smaller or equal to 5
+        if (party1.getCharacters().size() <= 5 && party2.getCharacters().size() <= 5
+                && party1.getCharacters().size() > 1 && party2.getCharacters().size() > 1) {
+
+            printHeading("Choose the brave combatants who will duel for the golden script");
+            Duel newDuel = new Duel(selectCombatant(party1), selectCombatant(party2));
+        }
+
+
+        //}
+
+//        //setting isRunning to true, so the game loop can continue
+//        isRunning = true;
+//
+//        //start main game loop
+//        duelLoop();
+
     }
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
 
-    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
-    //Custom Menu
-    /*public static void customMenu(Party party) {
-        int sizeParties=5; //Ver que hacer con el tamaño de la party
-        String name = " ";
+    // method to select a combatant of each party to send to the duel
+    public static Character selectCombatant(Party party) {
+        Character currentCombatant = null;
+        boolean isCombatantSet = false;
 
-        //AL final no preguntamos cuanto. Dejamos que agregue hasta cuando quiera y lo limitamos con lo del add
+        while (!isCombatantSet) {
+            System.out.println("Choose combatant from the " + party.getPartyName() + "Party");
+            printSeparator(20);
 
-        do {
-            clearConsole();
-            if(party.getCharacters().size() == 0){
-                printHeading("What's your first characters name?");
-                setName();
-
-            }else {
-                name1 = scanner.next();
-                //asking the player if he wants to correct his choice
-                clearConsole();
-                printHeading("Your Party name is " + name1 + ".\nIs that correct?");
-                System.out.println("(1) Yes!");
-                System.out.println("(2) No, I want to change the Party name");
-                int input = readInt("-> ", 2);
-                if (input == 1) {
-                    nameSet = true;
-                }
-                break;
+            for (int i = 0; i < party.getCharacters().size(); i++) {
+                int menuItemNumber = i + 1;
+                System.out.println("(" + menuItemNumber + ")" + party.getCharacters().get(i).toString());
             }
-        } while (party.getCharacters().size() < sizeParties );
 
+            int input = readInt("-> ", party.getCharacters().size() + 1);
 
+            currentCombatant = party.getCharacters().get((int) input - 1);
 
-        //create new player object with the name
-        party1 = new Party(name1);
-        party2 = new Party(name2);
+            isCombatantSet = true;
+        }
 
-        //create new Battle with the new 2 parties
-        Battle newBattle = new Battle(party1, party2);
+        System.out.println("Your character selected is " + currentCombatant);
 
+        return currentCombatant;
 
-        //setting isRunning to true, so the game loop can continue
-        isRunning = true;
+    }
 
-        //start main game loop
-        battleLoop();
-    }*/
+    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
+
 }
 
