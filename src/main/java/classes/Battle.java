@@ -1,6 +1,7 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Battle {
@@ -43,7 +44,17 @@ public class Battle {
         this.battleDuels = battleDuels;
     }
 
-    public List<Character> getGraveyard() { return graveyard; }
+    public List<Character> getGraveyard() {
+        return graveyard;
+    }
+    public void showGraveyard() {
+        System.out.println("GRAVEYARD: where you'll find ALL your dead palls. Muahahahah!");
+        System.out.println("The unlucky ones were: ");
+
+        for(Character dead : graveyard){
+            System.out.println("✞ \uD83C\uDF44 Here lies  %s the Brave and Mighty %s ".formatted(dead.getName(), dead.getClass().getSimpleName()));
+        }
+    }
 
     public void setGraveyard(List<Character> graveyard) { this.graveyard = graveyard; }
 

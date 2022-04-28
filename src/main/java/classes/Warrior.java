@@ -2,6 +2,8 @@ package classes;
 
 import interfaces.Attackers;
 
+import java.util.List;
+
 public class Warrior extends Character implements Attackers {
 
     private int stamina;
@@ -17,6 +19,7 @@ public class Warrior extends Character implements Attackers {
     public Warrior() {
 
     }
+
 
     public int getStamina() {
         return stamina;
@@ -36,28 +39,30 @@ public class Warrior extends Character implements Attackers {
 
 
     @Override
-    public int bigAttack() {
+    public void bigAttack(Character receiver) {
         //HeavyAttack
         //Disminuyo lo consumido de stamina en -5 puntos
         this.stamina = this.stamina - 5;
         //Defino el daño que realiza: es igual a su strength
         int damage = this.strength;
-        return damage;
+        receiver.setHp(getHp()-damage);
     }
 
     @Override
-    public int smallAttack() {
+    public void smallAttack(Character receiver) {
         //Weak Attack
         //Restablezco la stamina + 1 punto
         this.stamina = this.stamina + 1;
         //Defino el daño que realiza: es la mitad del strength sin decimales.
         int damage = Math.round(this.strength / 2);
-        return damage;
+        receiver.setHp(getHp()-damage);
     }
 
     @Override
     public String toString() {
-        //return "id=%s, name=%s, hp=%s, isAlive=%s \n==============\n".formatted(id, name, hp, isAlive);
+
         return "Name: %s, Hp: %s, Stamina: %s, Strength: %s \n==============\n".formatted(getName(), getHp(), stamina, strength);
     }
+
 }
+

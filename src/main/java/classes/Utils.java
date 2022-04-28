@@ -2,13 +2,13 @@ package classes;
 
 import java.util.Scanner;
 
-import static classes.Utils.duelLoop;
-
 public class Utils {
     public static boolean isRunning;
     static Scanner scanner = new Scanner(System.in);
     static Party party1;
     static Party party2;
+
+    static Battle newBattle;
 
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
     //method to get user input from console
@@ -120,7 +120,7 @@ public class Utils {
         printHeading("Your Party-> " + party2.getPartyName() + "<- is Created");
 
         //create new Battle with the new 2 parties
-        Battle newBattle = new Battle(party1, party2);
+        newBattle = new Battle(party1, party2);
 
         //setting isRunning to true, so the game loop can continue
         isRunning = true;
@@ -249,7 +249,7 @@ public class Utils {
         System.out.println("(2) Random Party");
         System.out.println("(3) Custom Party");
     }
-    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////// BATTLE LOOP //////////////////////////////////////////////
 
     // main game loop
     public static void battleLoop() {
@@ -310,27 +310,107 @@ public class Utils {
         duelLoop(newDuel);
 
     }
+
+
+
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
 
     public static void duelLoop(Duel duel){
         printHeading("THE BATTLE HAS BEGUN");
         printHeading( duel.getCurrentCombatant1().getName() + " the " + duel.getCurrentCombatant1().getClass().getSimpleName()
-                + " from the " + party1.getPartyName() + " -VS- " + duel.getCurrentCombatant2().getName() + " the " + duel.getCurrentCombatant2().getClass().getSimpleName()
-                + " from the " + party2.getPartyName());
+                + " from the " + party1.getPartyName() + " party  -VS- " + duel.getCurrentCombatant2().getName() + " the " + duel.getCurrentCombatant2().getClass().getSimpleName()
+                + " from the " + party2.getPartyName() + " party");
         anythingToContinue();
-        while(duel.getCurrentCombatant1().isAlive() && duel.getCurrentCombatant2().isAlive()){
-            if(duel.getCurrentCombatant1().getClass().getSimpleName().equals("Warrior")){
-                if()
 
+        while(duel.getCurrentCombatant1().isAlive() && duel.getCurrentCombatant2().isAlive()){
+
+            if(duel.getCurrentCombatant1().getClass().getSimpleName().equals("Warrior")){
+                Warrior charToWArr = (Warrior) duel.getCurrentCombatant1();
+                if(charToWArr.getStamina() >= 5){
+                    charToWArr.bigAttack(duel.getCurrentCombatant2());
+                    printHeading(duel.getCurrentCombatant1().getName() + " the Mighty Warrior used Heavy Attack!");
+                }else{
+                    charToWArr.smallAttack(duel.getCurrentCombatant2());
+                    printHeading(duel.getCurrentCombatant1().getName() + " the Mighty Warrior used Weak Attack!");
+                }
+            }else if(duel.getCurrentCombatant1().getClass().getSimpleName().equals("Wizard")){
+                Wizard charToWizz = (Wizard) duel.getCurrentCombatant1();
+                if(charToWizz.getMana() >= 5){
+                    charToWizz.bigAttack(duel.getCurrentCombatant2());
+                    printHeading(duel.getCurrentCombatant1().getName() + " the Mystical Wizard used Fireball!");
+                }else{
+                    charToWizz.smallAttack(duel.getCurrentCombatant2());
+                    printHeading(duel.getCurrentCombatant1().getName() + " the Mystical Wizard used Staff Hit");
+                }
             }
+
+
+            if(duel.getCurrentCombatant2().getClass().getSimpleName().equals("Warrior")){
+                Warrior charToWArr = (Warrior) duel.getCurrentCombatant2();
+                if(charToWArr.getStamina() >= 5){
+                    charToWArr.bigAttack(duel.getCurrentCombatant1());
+                    printHeading(duel.getCurrentCombatant2().getName() + " the Mighty Warrior used Heavy Attack!");
+                }else{
+                    charToWArr.smallAttack(duel.getCurrentCombatant1());
+                    printHeading(duel.getCurrentCombatant2().getName() + " the Mighty Warrior used Weak Attack!");
+                }
+            }else if(duel.getCurrentCombatant2().getClass().getSimpleName().equals("Wizard")){
+                Wizard charToWizz = (Wizard) duel.getCurrentCombatant1();
+                if(charToWizz.getMana() >= 5){
+                    charToWizz.bigAttack(duel.getCurrentCombatant1());
+                    printHeading(duel.getCurrentCombatant2().getName() + " the Mystical Wizard used Fireball!");
+                }else{
+                    charToWizz.smallAttack(duel.getCurrentCombatant1());
+                    printHeading(duel.getCurrentCombatant2().getName() + " the Mystical Wizard used  Staff Hit!");
+                }
+            }
+            System.out.println("Check your combatants status");
+            anythingToContinue();
             printHeading("STATUS: \n" + duel.getCurrentCombatant1().toString() + "\n" + duel.getCurrentCombatant2().toString());
 
+            duel.getCurrentCombatant1().setAlive();
+            duel.getCurrentCombatant2().setAlive();
+
+            System.out.println(duel.getCurrentCombatant1().isAlive() + " " + duel.getCurrentCombatant2().isAlive());
+            anythingToContinue();
         }
+        if(duel.getCurrentCombatant1().isAlive() && !duel.getCurrentCombatant2().isAlive()){
+            clearConsole();
+            System.out.println(duel.getCurrentCombatant1().getName() + " has demolished " + duel.getCurrentCombatant2().getName());
+            System.out.println(duel.getCurrentCombatant1().getName() + " IS THE WINNER OF THE DUEL!");
 
+            newBattle.getGraveyard().add(duel.getCurrentCombatant2());
+            System.out.println(duel.getCurrentCombatant2().getName() + " has been sent to the Graveyard.");
+            party2.removeCharacter(duel.getCurrentCombatant2());
 
+        }else if(duel.getCurrentCombatant2().isAlive() && !duel.getCurrentCombatant1().isAlive()){
+            clearConsole();
+            System.out.println(duel.getCurrentCombatant2().getName() + " has demolished " + duel.getCurrentCombatant1().getName());
+            System.out.println(duel.getCurrentCombatant2().getName() + " IS THE WINNER OF THE DUEL!");
 
+            newBattle.getGraveyard().add(duel.getCurrentCombatant1());
+            System.out.println(duel.getCurrentCombatant1().getName() + " has been sent to the Graveyard.");
+            party1.removeCharacter(duel.getCurrentCombatant1());
 
+        }else if(!duel.getCurrentCombatant2().isAlive() && !duel.getCurrentCombatant1().isAlive()) {
+            clearConsole();
+            System.out.println(duel.getCurrentCombatant2().getName() + " & " + duel.getCurrentCombatant1().getName() + " are both demolished");
+            System.out.println("THE DUEL IS A TIE!");
 
+            newBattle.getGraveyard().add(duel.getCurrentCombatant1());
+            newBattle.getGraveyard().add(duel.getCurrentCombatant2());
+            System.out.println("Both " + duel.getCurrentCombatant1().getName() + " & " + duel.getCurrentCombatant2().getName()+ " have been sent to the Graveyard.");
+            party1.removeCharacter(duel.getCurrentCombatant1());
+            party2.removeCharacter(duel.getCurrentCombatant2());
+        }
+        anythingToContinue();
+        newBattle.showGraveyard();
+        anythingToContinue();
+
+        printHeading("Choose the brave combatants who will duel for the golden script");
+        Duel newDuel = new Duel(selectCombatant(party1), selectCombatant(party2));
+
+        duelLoop(newDuel);
     }
 
 
