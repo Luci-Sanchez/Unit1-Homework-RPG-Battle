@@ -253,6 +253,7 @@ public class Utils {
 
     // main game loop
     public static void battleLoop() {
+        Duel newDuel = null;
         System.out.println("In the Battle loop");
         boolean arePartiesSet = false;
         int numberOfSetParties = 1;
@@ -297,7 +298,7 @@ public class Utils {
                 && party1.getCharacters().size() > 1 && party2.getCharacters().size() > 1) {
 
             printHeading("Choose the brave combatants who will duel for the golden script");
-            Duel newDuel = new Duel(selectCombatant(party1), selectCombatant(party2));
+             newDuel = new Duel(selectCombatant(party1), selectCombatant(party2));
 
 
         }
@@ -306,12 +307,27 @@ public class Utils {
         isRunning = true;
 
         //start main game loop
-        duelLoop();
+        duelLoop(newDuel);
 
     }
     //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
 
-    public static void duelLoop(){
+    public static void duelLoop(Duel duel){
+        printHeading("THE BATTLE HAS BEGUN");
+        printHeading( duel.getCurrentCombatant1().getName() + " the " + duel.getCurrentCombatant1().getClass().getSimpleName()
+                + " from the " + party1.getPartyName() + " -VS- " + duel.getCurrentCombatant2().getName() + " the " + duel.getCurrentCombatant2().getClass().getSimpleName()
+                + " from the " + party2.getPartyName());
+        anythingToContinue();
+        while(duel.getCurrentCombatant1().isAlive() && duel.getCurrentCombatant2().isAlive()){
+            if(duel.getCurrentCombatant1().getClass().getSimpleName().equals("Warrior")){
+                if()
+
+            }
+            printHeading("STATUS: \n" + duel.getCurrentCombatant1().toString() + "\n" + duel.getCurrentCombatant2().toString());
+
+        }
+
+
 
 
 
