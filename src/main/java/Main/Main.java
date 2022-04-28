@@ -7,9 +7,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static classes.Utils.startGame;
+
 public class Main {
     public static void main(String[] args) {
-        Warrior jofi= new Warrior("Jofi", 10,200,122);
+        /*Warrior jofi= new Warrior("Jofi", 10,200,122);
         Wizard paz= new Wizard("Paz", 101,210,1232);
 
         List<Character> list = new ArrayList<>();
@@ -35,12 +37,9 @@ public class Main {
 
 
         System.out.println(sisters);
-        //System.out.println(sisters.getCharacters());
-        Utils utilsw = new Utils();
+        //System.out.println(sisters.getCharacters());*/
 
-        //utilsw.setName();
-        utilsw.startGame();
-
+        startGame();
 
 
 
