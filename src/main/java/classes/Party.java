@@ -1,7 +1,6 @@
 package classes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -13,38 +12,32 @@ public class Party {
 
 
     ////////////////////////////////////////////////////////////Contructors/////////////////////////////////////////
-    //Constructor 4 Import list of characters
     public Party(String partyName, List<Character> characters) {
         this.partyName = partyName;
         this.characters = characters;
     }
 
-    //Constructor Custom & Random (only name)
     public Party(String partyName) {
         this.partyName = partyName;
     }
 
-
-    ///////////////////////////////////////////////////////////Getters ///////////////////////////////////////
-
+    ///////////////////////////////////////////////////////////Getters///////////////////////////////////////
     public String getPartyName() {
         return partyName;
     }
-
 
     public List<Character> getCharacters() {
         return characters;
     }
 
 
-    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
-
+    //////////////////////////////////////////////////////////////////addCharacter Method//////////////////////////////////////////////
     public void addCharacter(Character newCharacter) {
         int MAX_SIZE_PARTY = 5; //Max size of a party
 
         if (characters.size() <= MAX_SIZE_PARTY) {
 
-            //List of all character names in that party
+            //List of all character names already in that party
             List<String> names = new ArrayList<>();
             for (Character player : characters) {
                 names.add(player.getName());
@@ -55,30 +48,29 @@ public class Party {
                 System.out.println(String.format("But, don't worry, %s Junior will be created!", newCharacter.getName()));
                 newCharacter.setName(newCharacter.getName() + " Jr.");
             } else {
-                System.out.println(String.format("Great! %s is available..", newCharacter.getName()));
+                System.out.println(String.format("Great! %s is available.", newCharacter.getName()));
                 newCharacter.setName(newCharacter.getName());
             }
             characters.add(newCharacter);
         } else {
-            System.out.println("Party full!! Let's Play the Game XD :D XD");
+            System.out.println("Party full!! Let's Play the Game :mage: :crossed_swords: :elf_woman: :joystick:");
         }
 
     }
-
+    //////////////////////////////////////////////////////////////////removeCharacter Method//////////////////////////////////////////////
     //Remove character - form party in battle --> Graveyard
     public void removeCharacter(Character character) {
         characters.remove(character);
     }
 
 
-    //////////////////////////////////////////////////////////////////RANDOM PARTY METHODS//////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////Random party//////////////////////////////////////////////
     public void randomMethod() {
         Random isWarrior = new Random();
         Random randomInt = new Random();
 
-        clearConsole();
         int partySize = readInt("Choose a party size from 1 to 5: ", 5);
-
+        clearConsole();
 
         for (int i = 0; i < partySize; i++) {
             String name = randomName();
@@ -114,23 +106,18 @@ public class Party {
 
         Random randomizer = new Random();
         return subjects.get(randomizer.nextInt(subjects.size()));
-
     }
 
-    //////////////////////////////////////////////////////////////////  //////////////////////////////////////////////
-
+    //////////////////////////////////////////////////////////////////Custom Party //////////////////////////////////////////////
     public void customMethod() {
-        List<Character> customList = new ArrayList<>();
-        int MAX_SIZE_PARTY = 5;
-        String name = " ";
         boolean typeSet = false;
         boolean isWarrior = false;
 
         clearConsole();
         int partySize = readInt("Choose a party size from 1 to 5: ", 5);
+        clearConsole();
 
         for (int i = 0; i < partySize; i++) {
-            //do {
             clearConsole();
             printHeading("Who is going to the join you in the quest for the secret code?");
             System.out.println("(1) A Strong Warrior!");
@@ -138,28 +125,26 @@ public class Party {
             int input = readInt("-> ", 2);
             if (input == 1) {
                 isWarrior = true;
-                typeSet = true;
             } else if (input == 2) {
                 isWarrior = false;
-                typeSet = true;
             }
             addCharacter(setStats(isWarrior));
-            //} while (!typeSet);
+
         }
     }
 
+    ///////////////////////////////////////////////////////////Override Methods///////////////////////////////////////
     @Override
     public String toString() {
-        /*for(int i=0; i<characters.size(); i++){
-            System.out.println(characters.get(i).toString());
-        };*/
+        String charactersString =  "";
+        for(int i=0; i<characters.size(); i++){
+            charactersString = charactersString+characters.get(i).toString();
+        };
         return
                 "PartyName: " + partyName + '\n' +
                         "Characters: " + "\n" +
                         "==============\n" +
-                        //Arrays.toString(characters.toArray());
-                        characters.toString();
-
+                        charactersString;
     }
 
 }

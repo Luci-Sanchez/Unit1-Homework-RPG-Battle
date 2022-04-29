@@ -1,4 +1,5 @@
 package Main;
+
 import static classes.Utils.startGame;
 
 public class Main {

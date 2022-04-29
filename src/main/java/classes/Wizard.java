@@ -7,7 +7,7 @@ public class Wizard extends Character implements Attackers {
     private int intelligence;
     //TODO add stats limits
 
-
+    ////////////////////////////////////////////////////////////Contructors/////////////////////////////////////////
     public Wizard(String name, int hp, int mana, int intelligence) {
         super(name, hp);
         this.mana = mana;
@@ -15,9 +15,9 @@ public class Wizard extends Character implements Attackers {
     }
 
     public Wizard() {
-
     }
 
+    ///////////////////////////////////////////////////////////Getters y Setter///////////////////////////////////////
 
     public int getMana() {
         return mana;
@@ -36,30 +36,35 @@ public class Wizard extends Character implements Attackers {
     }
 
 
+    ///////////////////////////////////////////////////////////Override Methods///////////////////////////////////////
+
     @Override
     public void bigAttack(Character receiver) {
-        //Disminuyo lo consumido de mana
-        this.mana = this.mana - 5;
-        //Defino el daño que realiza
-        //que hay que restarselo al strength o intelligence del contrincante
+        //Fireball
+        //The damage is equals to the intelligence
         int damage = this.intelligence;
         receiver.setHp(getHp()-damage);
+
+        //and every fireball will decrease their mana by 5 points.
+        this.mana = this.mana - 5;
     }
 
     @Override
     public void smallAttack(Character receiver) {
-        //Disminuyo lo consumido de mana
-        this.mana = this.mana + 1;
-        //Defino el daño que realiza
-        //que hay que restarselo al strength o intelligence del contrincante
+        //Staff hit
+        //The damage of a staff hit is equals to 2.
         int damage = 2;
         receiver.setHp(getHp()-damage);
+        // Every staff hit will recover his mana by 1.
+        this.mana = this.mana + 1;
     }
 
     @Override
     public String toString() {
-
-        return "Name: %s, Hp: %s, Mana: %s, Intelligence: %s \n==============\n".formatted(getName(), getHp(), mana, intelligence);
+        return ("Name: %s, Hp: %s, " +
+                "Mana: %s, Intelligence: %s " +
+                "\n==============\n").formatted(getName(), getHp(), mana, intelligence);
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
