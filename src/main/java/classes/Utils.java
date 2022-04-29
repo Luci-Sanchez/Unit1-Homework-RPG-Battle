@@ -89,7 +89,7 @@ public class Utils {
     ///////////////////////////////////////////////// START GAME///////////////////////////////////////////////////////
     public static void startGame() {
         System.out.println(title);
-        clearConsole();
+        anythingToContinue();
 
 
         credits();
@@ -107,21 +107,19 @@ public class Utils {
         clearConsole();
         printHeading("The name of your first Party is --> " + party1.getPartyName() + " <--");
         printSeparator(30);
-        printHeading("Are you ready to create the second party?");
 
-        System.out.println("\n ✨ Go ahead, create your First Party ✨ \n");
-        party1 = new Party(setAttribute("\n -> Name the First Party which will follow you to battle: ", "Party name"));
+        clearConsole();
+        printHeading("  \nGet ready to create the second party!\n");
+        anythingToContinue();
+
+        clearConsole();
+        System.out.println("\n ✨ Go ahead, create your Second Party ✨ \n");
+        party1 = new Party(setAttribute("\n -> Name the Second Party which will follow you to battle: ", "Party name"));
 
         clearConsole();
         printHeading("\n\n\n ✨ Your Party  ↂ" + party1.getPartyName() + "ↂ was Created ✨ \n\n\n");
         anythingToContinue();
 
-        printHeading("  \nGet ready to create the second party!\n");
-
-        clearConsole();
-        System.out.println("\n ✨ Go ahead, create the Second Party ✨ \n");
-        party2 = new Party(setAttribute("Name the Second Party which will battle: ", "Party name"));
-        printHeading("Your Party ↂ" + party2.getPartyName() + "ↂ was Created");
 
 
         //create new Battle with the new 2 parties
@@ -203,7 +201,6 @@ public class Utils {
             anythingToContinue();
 
             clearConsole();
-            System.out.println("Lets Create party2 with random Method");
             party2.randomMethod();
             printSeparator(30);
             System.out.println("\n ✨ Second Random Party was Created!  ✨ \n");
@@ -426,7 +423,6 @@ public class Utils {
 
 
     /////////////////////////////////////////////////////////////Party Type Menu //////////////////////////////////////
-
     public static void printPartyTypeMenu() {
         clearConsole();
         printHeading(" \n And now, how will you arrange your Party? \n ");
@@ -449,8 +445,6 @@ public class Utils {
                 int menuItemNumber = i + 1;
                 System.out.println("(" + menuItemNumber + ") " + party.getCharacters().get(i).toString());
             }
-
-            //System.out.println("------- PARTY SIZE ------>>>>>> " + party.getCharacters().size());
 
             int input = readInt("-> ", party.getCharacters().size());
 
