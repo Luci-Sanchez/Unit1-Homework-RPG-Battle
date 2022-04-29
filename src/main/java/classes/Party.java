@@ -1,8 +1,11 @@
 package classes;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 import static classes.Utils.*;
 
@@ -21,7 +24,7 @@ public class Party {
         this.partyName = partyName;
     }
 
-    ///////////////////////////////////////////////////////////Getters///////////////////////////////////////
+    ///////////////////////////////////////////////////////////Getters////////////////////////////////////////////////
     public String getPartyName() {
         return partyName;
     }
@@ -31,7 +34,7 @@ public class Party {
     }
 
 
-    //////////////////////////////////////////////////////////////////addCharacter Method//////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////addCharacter Method//////////////////////////////
     public void addCharacter(Character newCharacter) {
         int MAX_SIZE_PARTY = 5; //Max size of a party
 
@@ -45,7 +48,8 @@ public class Party {
 
             if (names.contains(newCharacter.getName())) {
                 System.out.println("A player with this name already in this Party");
-                System.out.println(String.format("But, don't worry, %s Junior will be created!", newCharacter.getName()));
+                System.out.println(String.format("But, don't worry, %s Junior will be created!",
+                        newCharacter.getName()));
                 newCharacter.setName(newCharacter.getName() + " Jr.");
             } else {
                 System.out.println(String.format("Great! %s is available.", newCharacter.getName()));
@@ -53,22 +57,24 @@ public class Party {
             }
             characters.add(newCharacter);
         } else {
-            System.out.println("Party full!! Let's Play the Game :mage: :crossed_swords: :elf_woman: :joystick:");
+            clearConsole();
+            System.out.println("\n ✨ Party is FULL!!  Now, Let's BATTLE!! ✨\n");
         }
 
     }
-    //////////////////////////////////////////////////////////////////removeCharacter Method//////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////removeCharacter Method///////////////////////////
     //Remove character - form party in battle --> Graveyard
     public void removeCharacter(Character character) {
         characters.remove(character);
     }
 
 
-    //////////////////////////////////////////////////////////////////Random party//////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////Random party/////////////////////////////////////
     public void randomMethod() {
         Random isWarrior = new Random();
         Random randomInt = new Random();
 
+        clearConsole();
         int partySize = readInt("Choose a party size from 1 to 5: ", 5);
         clearConsole();
 
@@ -108,20 +114,22 @@ public class Party {
         return subjects.get(randomizer.nextInt(subjects.size()));
     }
 
-    //////////////////////////////////////////////////////////////////Custom Party //////////////////////////////////////////////
+    /////////////////////////////////////////////////////////Custom Party //////////////////////////////////////////////
     public void customMethod() {
         boolean typeSet = false;
         boolean isWarrior = false;
 
         clearConsole();
-        int partySize = readInt("Choose a party size from 1 to 5: ", 5);
+        int partySize = readInt(" -> From 1 to 5, how many fellows will serve the Party's quest?: ",
+                5);
         clearConsole();
 
         for (int i = 0; i < partySize; i++) {
             clearConsole();
-            printHeading("Who is going to the join you in the quest for the secret code?");
-            System.out.println("(1) A Strong Warrior!");
-            System.out.println("(2) or a Clever Wizard");
+            printHeading("\n ✨ WoW! ✨   Both Wizards & Warriors are willing to join. " +
+                    "\n Who will join you on the quest for The Golden✨ Script\n?");
+            System.out.println("(1) A Strong Warrior! \uD83D\uDCAA");
+            System.out.println("(2) or a Clever Wizard! \uD83E\uDDD9");
             int input = readInt("-> ", 2);
             if (input == 1) {
                 isWarrior = true;
@@ -130,6 +138,36 @@ public class Party {
             }
             addCharacter(setStats(isWarrior));
 
+        }
+    }
+    ///////////////////////////////////////////////Import Party /////////////////////////////////////////////////////
+    public void importCsv(File csvFile) {
+        try {
+            Scanner scanner = new Scanner(csvFile);
+
+            String partyName = csvFile.getName().substring(0, csvFile.getName().length() -4);
+            System.out.println(partyName);
+            scanner.nextLine();
+
+            while(scanner.hasNextLine()) {
+
+                String stringCharacter = scanner.nextLine();
+                String[] dataCharacter = stringCharacter.split(";");
+
+                if(dataCharacter[6].equals(true)) {
+                    Warrior warrior = new Warrior(dataCharacter[1], Integer.parseInt(dataCharacter[2]),
+                            Integer.parseInt(dataCharacter[4]), Integer.parseInt(dataCharacter[5]));
+                    addCharacter(warrior);
+                } else {
+                    Wizard wizard = new Wizard(dataCharacter[1], Integer.parseInt(dataCharacter[2]),
+                            Integer.parseInt(dataCharacter[4]), Integer.parseInt(dataCharacter[5]));
+                    addCharacter(wizard);
+                }
+            }
+            scanner.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
@@ -146,5 +184,6 @@ public class Party {
                         "==============\n" +
                         charactersString;
     }
+
 
 }

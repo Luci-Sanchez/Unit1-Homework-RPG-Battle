@@ -1,0 +1,5 @@
+ID;Name;Hp; isAlive;resource;strong;Type
+1;      Elbrus;12;true;23;4;true
+2;      Medea;34;true;34;12;false
+3;      Circe;4;true;5;67;true
+4;      Helios;12;true;23;4;true

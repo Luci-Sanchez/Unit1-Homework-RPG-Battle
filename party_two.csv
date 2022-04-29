@@ -1,0 +1,5 @@
+ID;Name;Hp; isAlive;resource;strong;Type
+1;      Xena;20;true;4;12;true
+2;      Medea;14;true;5;12;false
+3;      Agnar;4;true;10;61;true
+4;      Demeter;12;true;20;4;true
