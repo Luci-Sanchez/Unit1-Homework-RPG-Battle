@@ -50,7 +50,7 @@ public class Battle {
         return graveyard;
     }
     public void showGraveyard() {
-        System.out.println("\uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B" +
+        System.out.println("\uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B \n" +
                 "            @@@@@@@@@%                                                                                                 @@@@(                          \n" +
                 "         @@@@@   @@@@@  #@@@@/@@@@  #@@@@@@@@  @@@@@&   @@@@  *@@@@@@@,  @@@@@   @@@@  %@@@@@@@%   (@@@@/@@@@. (@@@@@@@@@@,                           \n" +
                 "       #@@@@  ,@@@@@@  &@@@@.         ./%@@@@  %@@@@,.@@@% *@@@@   @@@@. @@@@& @@@@      .(@@@@@  %@@@@.     @@@@%  .@@@@                             \n" +

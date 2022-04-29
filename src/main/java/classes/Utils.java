@@ -10,6 +10,7 @@ public class Utils {
     static Party party2;
 
     static Battle newBattle;
+    static Duel newDuel;
 
     static String title =
             "                                                       %&.    ✨\n" +
@@ -98,14 +99,12 @@ public class Utils {
 
         //naming both parties who will battle
         clearConsole();
-        printSeparator(30);
-        System.out.println("You are now creating your First Party");
+        System.out.println("\n ✨ Go ahead, create your First Party ✨ \n");
         printSeparator(30);
         party1 = new Party(setAttribute("Name the First Party which will follow you to battle: ",
                 "Party name"));
-        printSeparator(30);
         clearConsole();
-        printHeading("The name of your first Party is --> " + party1.getPartyName() + " <--");
+        printHeading("\n\n\n ✨ Your Party  ↂ" + party1.getPartyName() + "ↂ was Created ✨ \n\n\n");
         printSeparator(30);
 
         clearConsole();
@@ -114,10 +113,10 @@ public class Utils {
 
         clearConsole();
         System.out.println("\n ✨ Go ahead, create your Second Party ✨ \n");
-        party1 = new Party(setAttribute("\n -> Name the Second Party which will follow you to battle: ", "Party name"));
+        party2 = new Party(setAttribute("\n -> Name the Second Party which will follow you to battle: ", "Party name"));
 
         clearConsole();
-        printHeading("\n\n\n ✨ Your Party  ↂ" + party1.getPartyName() + "ↂ was Created ✨ \n\n\n");
+        printHeading("\n\n\n ✨ Your Party  ↂ" + party2.getPartyName() + "ↂ was Created ✨ \n\n\n");
         anythingToContinue();
 
 
@@ -166,7 +165,6 @@ public class Utils {
 
     ////////////////////////////////////////////// BATTLE LOOP ////////////////////////////////////////////////////////
     public static void battleLoop() {
-        Duel newDuel = null;
 
         printPartyTypeMenu();
         int input = readInt("-> ", 3);
@@ -215,7 +213,7 @@ public class Utils {
 
             party2.customMethod();
             System.out.println(party2.toString());
-            // break;
+
         } else {
             System.out.println("Select 1, 2 or 3 !!");
             printPartyTypeMenu();
@@ -223,7 +221,7 @@ public class Utils {
 
         //Only allow players to continue if party size is bigger than 1 and smaller or equal to 5
         if (party1.getCharacters().size() <= 5 && party2.getCharacters().size() <= 5
-                && party1.getCharacters().size() > 1 && party2.getCharacters().size() > 1) {
+                && party1.getCharacters().size() >= 1 && party2.getCharacters().size() >= 1) {
 
             printHeading("\nChoose the brave combatants who will duel for the golden script\n");
             newDuel = new Duel(selectCombatant(party1), selectCombatant(party2));
@@ -279,7 +277,7 @@ public class Utils {
                     printHeading(duel.getCurrentCombatant2().getName() + " the Mighty Warrior used Weak Attack! \uD83D\uDC4F");
                 }
             } else if (duel.getCurrentCombatant2().getClass().getSimpleName().equals("Wizard")) {
-                Wizard charToWizz = (Wizard) duel.getCurrentCombatant1();
+                Wizard charToWizz = (Wizard) duel.getCurrentCombatant2();
                 if (charToWizz.getMana() >= 5) {
                     charToWizz.bigAttack(duel.getCurrentCombatant1());
                     printHeading(duel.getCurrentCombatant2().getName() + " the Mystical Wizard used Fireball! \uD83D\uDD25✨");
@@ -344,7 +342,7 @@ public class Utils {
                     "  ✨      @@@@*    @@@@%   @@@@, &@@@@   @@@@  @@@@%     *@@@@   @@@@.        @@@@( (@@@@@#                 ./&@@@@  \n" +
                     "        @@@@,    @@@@(  .@@@@. @@@@@         @@@@*     %@@@@                @@@@*     #@@@@@@@   ✨   *@@@@. @@@@@   \n" +
                     "       @@@@@@@, @@@@*  ,@@@@   ,@@@@@@@@(   @@@@.       @@@@@@@@&   ✨      @@@@.  @@@@@@@@@@         @@@@@@@@@@@ " +
-                    "\n" +
+                    "\n \n" +
                     "     ,@@@@@@@@@@@@@@@@@@@@@@@@@@#*@@@@@@   @@@@@@@@@@@@@  /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,         @@@@ @@@@/   ✨ \n" +
                     "       @@@@@/ @@@@@@ ,@@@. @@@@@   @@@@@@@  %@@@* #@@@@@@   @@@@  @@@@@@@@@@@@@  @@@@@@@@@@@@&      /@@@# @@@@  \n" +
                     "       #@@@@  @@@@@* @@@   @@@@@   @@@@@@@@ *@@,   @@@@@@@% @@@   @@@@@     &@   @@@@@   @@@@@      @@@@ .@@@.  \n" +
