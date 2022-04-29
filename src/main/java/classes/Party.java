@@ -168,7 +168,7 @@ public class Party {
                 String stringCharacter = scanner.nextLine();
                 String[] dataCharacter = stringCharacter.split(", ");
 
-                if(dataCharacter[7].equals("0")) {
+                if(dataCharacter[6].equals("0")) {
                     Warrior warrior = new Warrior(dataCharacter[1], Integer.parseInt(dataCharacter[2]),
                             Integer.parseInt(dataCharacter[3]), Integer.parseInt(dataCharacter[4]));
                     partyArray.add(warrior);
