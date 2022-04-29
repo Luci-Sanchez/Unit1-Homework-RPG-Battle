@@ -24,9 +24,7 @@ public class Wizard extends Character implements Attackers {
     }
 
     public void setMana(int mana) {
-        if (mana < 10) {
-            this.mana = 10;
-        } else if (mana > 50) {
+        if (mana > 50) {
             this.mana = 50;
         } else {
             this.mana = mana;
@@ -39,9 +37,7 @@ public class Wizard extends Character implements Attackers {
     }
 
     public void setIntelligence(int intelligence) {
-        if (intelligence < 1) {
-            this.intelligence = 1;
-        } else if (intelligence > 50) {
+        if (intelligence > 50) {
             this.intelligence = 50;
         } else {
             this.intelligence = intelligence;
@@ -51,24 +47,22 @@ public class Wizard extends Character implements Attackers {
 
 
     ///////////////////////////////////////////////////////////Override Methods///////////////////////////////////////
-
-    @Override
-    public void setHp(int hp) {
-        if (hp < 50) {
-            super.setHp(50);
-        } else if (hp > 100) {
-            super.setHp(100);
-        } else {
-            super.setHp(hp);
-        }
-    }
+//
+//    @Override
+//    public void setHp(int hp) {
+//        if (hp > 100) {
+//            super.setHp(100);
+//        } else {
+//            super.setHp(hp);
+//        }
+//    }
 
     @Override
     public void bigAttack(Character receiver) {
         //Fireball
         //The damage is equals to the intelligence
         int damage = this.intelligence;
-        receiver.setHp(getHp()-damage);
+        receiver.setHp(getHp() - damage);
         //and every fireball will decrease their mana by 5 points.
         this.mana = this.mana - 5;
     }
@@ -78,7 +72,7 @@ public class Wizard extends Character implements Attackers {
         //Staff hit
         //The damage of a staff hit is equals to 2.
         int damage = 2;
-        receiver.setHp(getHp()-damage);
+        receiver.setHp(getHp() - damage);
         // Every staff hit will recover his mana by 1.
         this.mana = this.mana + 1;
     }

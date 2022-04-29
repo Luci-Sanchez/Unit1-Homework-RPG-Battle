@@ -271,7 +271,7 @@ public class Utils {
         anythingToContinue();
         newBattle.showGraveyard();
         anythingToContinue();
-
+        clearConsole();
 
         if (party1.getCharacters().size() == 0 && party2.getCharacters().size() > 0) {
             System.out.println(party1.getPartyName() + " YOU MANAGED TO FIND " +
