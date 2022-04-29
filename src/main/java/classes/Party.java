@@ -1,8 +1,11 @@
 package classes;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 import static classes.Utils.*;
 
@@ -148,6 +151,41 @@ public class Party {
                         "Characters: " + "\n" +
                         "==============\n" +
                         charactersString;
+    }
+
+
+    /////////////////////////////////////////////// Import Party /////////////////////////////////////////////////////
+    public static Party importCsv(File csvFile) {
+        try {
+            Scanner scanner = new Scanner(csvFile);
+            List<Character> partyArray = new ArrayList<>();
+
+            String partyName = csvFile.getName().substring(0, csvFile.getName().length() - 5);
+            scanner.nextLine();
+
+            while(scanner.hasNextLine()) {
+
+                String stringCharacter = scanner.nextLine();
+                String[] dataCharacter = stringCharacter.split(", ");
+
+                if(dataCharacter[6].equals("0")) {
+                    Warrior warrior = new Warrior(dataCharacter[1], Integer.parseInt(dataCharacter[2]),
+                            Integer.parseInt(dataCharacter[3]), Integer.parseInt(dataCharacter[4]));
+                    partyArray.add(warrior);
+                } else {
+                    Wizard wizard = new Wizard(dataCharacter[1], Integer.parseInt(dataCharacter[2]),
+                            Integer.parseInt(dataCharacter[5]), Integer.parseInt(dataCharacter[6]));
+                    partyArray.add(wizard);
+                }
+            }
+
+            scanner.close();
+            return new Party(partyName, partyArray);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }
