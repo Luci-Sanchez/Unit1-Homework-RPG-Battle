@@ -20,4 +20,4 @@ Game RULES:
 
 - When a party loses all their members, a winner party is declared!
 
-ENJOY PLAYING!!
+ENJOY PLAYING!! :checkered_flag:
