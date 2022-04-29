@@ -50,7 +50,14 @@ public class Battle {
         return graveyard;
     }
     public void showGraveyard() {
-        System.out.println(" \n \uD83E\uDEA6GRAVEYARD: where you'll find ALL your dead palls. Muahahahah! \uD83E\uDEA6 \n");
+        System.out.println("\uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B    \uD83D\uDC7B" +
+                "            @@@@@@@@@%                                                                                                 @@@@(                          \n" +
+                "         @@@@@   @@@@@  #@@@@/@@@@  #@@@@@@@@  @@@@@&   @@@@  *@@@@@@@,  @@@@@   @@@@  %@@@@@@@%   (@@@@/@@@@. (@@@@@@@@@@,                           \n" +
+                "       #@@@@  ,@@@@@@  &@@@@.         ./%@@@@  %@@@@,.@@@% *@@@@   @@@@. @@@@& @@@@      .(@@@@@  %@@@@.     @@@@%  .@@@@                             \n" +
+                "       @@@@.   @@@@@  @@@@@     .@@@@. %@@@@   *@@@@@@@.  %@@@@          (@@@@@@&  (@@@@  @@@@@  @@@@@      @@@@*  ,@@@@                              \n" +
+                "       &@@@@@@@#@@@  @@@@@      @@@@@@@@@@@     @@@@@      @@@@@@@@&      @@@@*    @@@@@@@@@@@  @@@@@       @@@@@@@@@@@                               \n" +
+                "                                                                    .@@@@@@%                                             ");
+        System.out.println(" \n \uD83E\uDEA6wWhere you'll find ALL your dead palls. MUAHAHAHA! \uD83E\uDEA6 \n");
         System.out.println("The unlucky ones were: ");
 
         for(Character dead : graveyard){
