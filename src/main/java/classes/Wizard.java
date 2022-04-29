@@ -10,8 +10,8 @@ public class Wizard extends Character implements Attackers {
 
     public Wizard(String name, int hp, int mana, int intelligence) {
         super(name, hp);
-        this.mana = mana;
-        this.intelligence = intelligence;
+        setMana(mana);
+        setIntelligence(intelligence);
     }
 
     public Wizard() {
@@ -24,7 +24,14 @@ public class Wizard extends Character implements Attackers {
     }
 
     public void setMana(int mana) {
-        this.mana = mana;
+        if (mana < 10) {
+            this.mana = 10;
+        } else if (mana > 50) {
+            this.mana = 50;
+        } else {
+            this.mana = mana;
+        }
+
     }
 
     public int getIntelligence() {
@@ -32,7 +39,25 @@ public class Wizard extends Character implements Attackers {
     }
 
     public void setIntelligence(int intelligence) {
-        this.intelligence = intelligence;
+        if (intelligence < 1) {
+            this.intelligence = 1;
+        } else if (intelligence > 50) {
+            this.intelligence = 50;
+        } else {
+            this.intelligence = intelligence;
+        }
+
+    }
+
+    @Override
+    public void setHp(int hp) {
+        if (hp < 50) {
+            super.setHp(50);
+        } else if (hp > 100) {
+            super.setHp(100);
+        } else {
+            super.setHp(hp);
+        }
     }
 
 
@@ -41,9 +66,9 @@ public class Wizard extends Character implements Attackers {
         //Disminuyo lo consumido de mana
         this.mana = this.mana - 5;
         //Defino el daño que realiza
-        //que hay que restarselo al strength o intelligence del contrincante
+        //que hay que restarselo al mana o intelligence del contrincante
         int damage = this.intelligence;
-        receiver.setHp(getHp()-damage);
+        receiver.setHp(getHp() - damage);
     }
 
     @Override
@@ -53,7 +78,7 @@ public class Wizard extends Character implements Attackers {
         //Defino el daño que realiza
         //que hay que restarselo al strength o intelligence del contrincante
         int damage = 2;
-        receiver.setHp(getHp()-damage);
+        receiver.setHp(getHp() - damage);
     }
 
     @Override

@@ -171,11 +171,11 @@ public class Utils {
         if (isWarrior) {
             //Setear lo de Warrior
             name = setAttribute("Which warrior name would you like?", "warrior's name");
-            printHeading("Choose your warrior's Health Points:");
+            printHeading("Choose your warrior's Health Points between 100 to 200:");
             hp = Integer.parseInt(scanner.next());
-            printHeading("Choose your warrior's Stamina:");
+            printHeading("Choose your warrior's Stamina between 10 to 50:");
             stamina = Integer.parseInt(scanner.next());
-            printHeading("Choose your warrior's Strength:");
+            printHeading("Choose your warrior's Strength between 1 to 10:");
             strength = Integer.parseInt(scanner.next());
             Warrior customWarrior = new Warrior(name, hp, stamina, strength);
             clearConsole();
@@ -185,11 +185,11 @@ public class Utils {
         } else {
             //Setear lo de Wizard
             name = setAttribute("Which wizard name would you like?", "wizard's name");
-            printHeading("Choose your wizard's Health Points:");
+            printHeading("Choose your wizard's Health Points between 50 to 100:");
             hp = Integer.parseInt(scanner.next());
-            printHeading("Choose your wizard's Mana:");
+            printHeading("Choose your wizard's Mana between between 10 to 50:");
             mana = Integer.parseInt(scanner.next());
-            printHeading("Choose your wizard's Intelligence:");
+            printHeading("Choose your wizard's Intelligence between 1 to 50:");
             intelligence = Integer.parseInt(scanner.next());
             Wizard customWizard = new Wizard(name, hp, mana, intelligence);
             printHeading("Your wizard has been created successfully!");
