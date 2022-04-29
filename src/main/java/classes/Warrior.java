@@ -8,13 +8,14 @@ public class Warrior extends Character implements Attackers {
     private int strength;
     //TODO add stats limits
 
+    ////////////////////////////////////////////////////////////Contructors/////////////////////////////////////////
     public Warrior(String name, int hp, int stamina, int strength) {
         super(name, hp);
         setStamina(stamina);
         setStrength(strength);
     }
 
-
+    ///////////////////////////////////////////////////////////Getters y Setter///////////////////////////////////////
     public int getStamina() {
         return stamina;
     }
@@ -44,6 +45,8 @@ public class Warrior extends Character implements Attackers {
 
     }
 
+    ///////////////////////////////////////////////////////////Override Methods///////////////////////////////////////
+
     @Override
     public void setHp(int hp) {
         if (hp < 100) {
@@ -58,28 +61,31 @@ public class Warrior extends Character implements Attackers {
     @Override
     public void bigAttack(Character receiver) {
         //HeavyAttack
-        //Disminuyo lo consumido de stamina en -5 puntos
-        this.stamina = this.stamina - 5;
-        //Defino el daño que realiza: es igual a su strength
+        //The damage is equals to their strength
         int damage = this.strength;
-        receiver.setHp(getHp() - damage);
+        receiver.setHp(getHp()-damage);
+        //and every hit will decrease their stamina by 5 points.
+        this.stamina = this.stamina - 5;
     }
 
     @Override
     public void smallAttack(Character receiver) {
         //Weak Attack
-        //Restablezco la stamina + 1 punto
-        this.stamina = this.stamina + 1;
-        //Defino el daño que realiza: es la mitad del strength sin decimales.
+        //The damage of a weak attack is the half of the strength (truncate decimals).
         int damage = Math.round(this.strength / 2);
-        receiver.setHp(getHp() - damage);
+        receiver.setHp(getHp()-damage);
+        // Every weak attack will recover his stamina by 1.
+        this.stamina = this.stamina + 1;
     }
 
     @Override
     public String toString() {
-
-        return "Name: %s, Hp: %s, Stamina: %s, Strength: %s \n==============\n".formatted(getName(), getHp(), stamina, strength);
+        return ("Name: %s, Hp: %s, " +
+                "Stamina: %s, Strength: %s " +
+                "\n==============\n").formatted(getName(), getHp(), stamina, strength);
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 }
 
