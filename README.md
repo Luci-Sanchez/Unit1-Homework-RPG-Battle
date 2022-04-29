@@ -1,6 +1,7 @@
 # RPG battle simulator :mage: :crossed_swords: :elf_woman: :joystick:
 
 ### Authors
+
 The LLIJ Team: Lucía Sánchez, Lisa Medina, Italia Herrera and Josefina Cresta.
 
 ### Usage
@@ -14,6 +15,7 @@ The LLIJ Team: Lucía Sánchez, Lisa Medina, Italia Herrera and Josefina Cresta.
 ```
 ./src/main/java/Main/Main.java  
 ```
+### Instructions :video_game:
 
 You can play in our RPG battle simulator, where you can create a party of warriors and wizards to fight other parties to determine the winner. 
 We have two types of characters, warriors and wizards who have different attributes and combat styles:
@@ -35,4 +37,4 @@ Game RULES:
 
 - When a party loses all their members, a winner party is declared!
 
-ENJOY PLAYING!! :checkered_flag:
+### ENJOY PLAYING!! :checkered_flag:
