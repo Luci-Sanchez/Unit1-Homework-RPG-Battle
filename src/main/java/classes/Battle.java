@@ -50,7 +50,7 @@ public class Battle {
         return graveyard;
     }
     public void showGraveyard() {
-        System.out.println("GRAVEYARD: where you'll find ALL your dead palls. Muahahahah!");
+        System.out.println(" \n \uD83E\uDEA6GRAVEYARD: where you'll find ALL your dead palls. Muahahahah! \uD83E\uDEA6 \n");
         System.out.println("The unlucky ones were: ");
 
         for(Character dead : graveyard){

@@ -53,7 +53,8 @@ public class Party {
             }
             characters.add(newCharacter);
         } else {
-            System.out.println("Party full!! Let's Play the Game :mage: :crossed_swords: :elf_woman: :joystick:");
+            clearConsole();
+            System.out.println("\n ✨ Party is FULL!!  Now, Let's BATTLE!! ✨\n");
         }
 
     }
@@ -69,6 +70,7 @@ public class Party {
         Random isWarrior = new Random();
         Random randomInt = new Random();
 
+        clearConsole();
         int partySize = readInt("Choose a party size from 1 to 5: ", 5);
         clearConsole();
 
@@ -114,14 +116,15 @@ public class Party {
         boolean isWarrior = false;
 
         clearConsole();
-        int partySize = readInt("Choose a party size from 1 to 5: ", 5);
+        int partySize = readInt(" -> From 1 to 5, how many fellows will serve the Party's quest?: ", 5);
         clearConsole();
 
         for (int i = 0; i < partySize; i++) {
             clearConsole();
-            printHeading("Who is going to the join you in the quest for the secret code?");
-            System.out.println("(1) A Strong Warrior!");
-            System.out.println("(2) or a Clever Wizard");
+            printHeading("\n ✨ WoW! ✨   Both Wizards & Warriors are willing to join. " +
+                    "\n Who will join you on the quest for The Golden✨ Script\n?");
+            System.out.println("(1) A Strong Warrior! \uD83D\uDCAA");
+            System.out.println("(2) or a Clever Wizard! \uD83E\uDDD9");
             int input = readInt("-> ", 2);
             if (input == 1) {
                 isWarrior = true;
