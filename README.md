@@ -25,7 +25,7 @@ We have two types of characters, warriors and wizards who have different attribu
   
 - WIZARDS are the masters of the arcane their main attribute is intelligence. Every round a wizard will try to cast a “Fireball”. The damage of a     fireball is equals to his intelligence and every fireball will decrease their mana by 5 points. If he can’t cast a fireball he will do a “Staff     hit”. The damage of a staff hit is equals to 2. Every staff hit will recover his mana by 1.
 
-Game RULES:
+### Game RULES:
 
 - The characters are grouped in parties and the battle is between 2 parties. So before the battle begins you will need to add warriors or wizards in both parties (could be mixed with warriors and wizards).
 
@@ -36,5 +36,13 @@ Game RULES:
 - When a round is over the winner returns to the party and the loser is removed and sent to the graveyard. Then, you can choose thecombatants for the next duel.
 
 - When a party loses all their members, a winner party is declared!
+
+### Some game pics:
+
+![image](https://user-images.githubusercontent.com/64841973/166110912-aac435e4-a0a6-4781-856f-2ed085e35866.png)
+![image](https://user-images.githubusercontent.com/64841973/166110956-dca62cff-a376-4f85-9b37-da76c0364186.png)
+![image](https://user-images.githubusercontent.com/64841973/166111052-50982704-2bf2-4e92-95ca-b525a8bd301b.png)
+![image](https://user-images.githubusercontent.com/64841973/166111070-b66ef9a8-5a18-4d69-b7f4-15f13a9f9b50.png)
+
 
 ### ENJOY PLAYING!! :checkered_flag:
