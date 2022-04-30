@@ -445,7 +445,7 @@ public class Utils {
                 stat = -1;
                 System.out.println("Please enter a valid integer!");
             }
-        } while (stat < 100 || stat > 200);
+        } while (stat < min || stat > max);
         return stat;
     }
 
