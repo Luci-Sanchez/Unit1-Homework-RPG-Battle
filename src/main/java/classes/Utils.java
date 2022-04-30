@@ -14,17 +14,17 @@ public class Utils {
 
     static String title =
             "                                                       %&.    ✨\n" +
-            "  ✨  @@@@@@@   @@@@, &@@@@@@%@@@@@@ @@#   #@@@@@*   %@@@/              @@@@@@(%@@\n" +
-            "   .@@( #@@  %@@@@/  .@@%    @@&  #@@    @@@      &@@&&  ,(#   *** %    #@@,  @@&  _  ##(*@\n" +
-            "   &@@@@@@  @@ @@#  @@@    &@@   @@@   .@@@@@,   @@@@&&@@@@@% @@@@&    @@@  ,@@@@@@% @&(  &@\n" +
-            " @@@  @@% @@@@@@%  @@@    @@@  .@@,   @@@.      @@& (@@   @@%#@@     .@@%  @@@  @@/@@@@##*\n" +
-            "/@@@@@@@ @@&..@@& /@@   *@@/  &@@@@@ @@@@@@   .@@. /@@@@@@ @@&      @@@   @@/ #@@ @@@@@@\n" +
-            "      *#%%(   ,,,   ,,, ,,,    ,,,   ,,,,,,.,,,,,.   ,,,    *(    ,,       ,,,  .,,  ,,,   ((\n" +
-            "    @@@@@*  @@@@@@/ ✨ @@(   &@@@@@@  .@@@@@& @@@   @@    @@@@@*  @@@@@ &@@@@@@  @@@ @@@@@@& @@@@@@\n" +
-            "   %@@/    (@@#  @@@ %@@    @@@ .@@@ &@@.   /@@@@ &@%   @@@    #@@(    @@&  @@ (@@. @@% %@@  @@@\n" +
-            "   @@#  ,% @@&   @@@ @@&   *@@.  @@@ @@@@@% @@@@@@@@    &@@@@% @@&    *@@@@@@  @@@ (@@@@@@   @@&\n" +
-            "  .@@@ %@%.@@@  @@@ *@@.   @@@  @@@ (@@#    @@ @@@@@       @@@ @@@    @@@*@@  .@@% @@@      &@@\n" +
-            "   &@@@@@  &@@@@@@  @@@@@@ @@@@@@@  @@@@@@ &@%  @@@,   @@@@@@  &@@@@@ @@#.@@@,&@@  @@*      @@@   ✨";
+                    "  ✨  @@@@@@@   @@@@, &@@@@@@%@@@@@@ @@#   #@@@@@*   %@@@/              @@@@@@(%@@\n" +
+                    "   .@@( #@@  %@@@@/  .@@%    @@&  #@@    @@@      &@@&&  ,(#   *** %    #@@,  @@&  _  ##(*@\n" +
+                    "   &@@@@@@  @@ @@#  @@@    &@@   @@@   .@@@@@,   @@@@&&@@@@@% @@@@&    @@@  ,@@@@@@% @&(  &@\n" +
+                    " @@@  @@% @@@@@@%  @@@    @@@  .@@,   @@@.      @@& (@@   @@%#@@     .@@%  @@@  @@/@@@@##*\n" +
+                    "/@@@@@@@ @@&..@@& /@@   *@@/  &@@@@@ @@@@@@   .@@. /@@@@@@ @@&      @@@   @@/ #@@ @@@@@@\n" +
+                    "      *#%%(   ,,,   ,,, ,,,    ,,,   ,,,,,,.,,,,,.   ,,,    *(    ,,       ,,,  .,,  ,,,   ((\n" +
+                    "    @@@@@*  @@@@@@/ ✨ @@(   &@@@@@@  .@@@@@& @@@   @@    @@@@@*  @@@@@ &@@@@@@  @@@ @@@@@@& @@@@@@\n" +
+                    "   %@@/    (@@#  @@@ %@@    @@@ .@@@ &@@.   /@@@@ &@%   @@@    #@@(    @@&  @@ (@@. @@% %@@  @@@\n" +
+                    "   @@#  ,% @@&   @@@ @@&   *@@.  @@@ @@@@@% @@@@@@@@    &@@@@% @@&    *@@@@@@  @@@ (@@@@@@   @@&\n" +
+                    "  .@@@ %@%.@@@  @@@ *@@.   @@@  @@@ (@@#    @@ @@@@@       @@@ @@@    @@@*@@  .@@% @@@      &@@\n" +
+                    "   &@@@@@  &@@@@@@  @@@@@@ @@@@@@@  @@@@@@ &@%  @@@,   @@@@@@  &@@@@@ @@#.@@@,&@@  @@*      @@@   ✨";
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////Method to get user input from console////////////////////////////////
@@ -73,7 +73,7 @@ public class Utils {
     }
 
     //Credits
-    public static void credits(){
+    public static void credits() {
         clearConsole();
         printSeparator(30);
         System.out.println("Battle for The GOLDEN SCRIPT");
@@ -118,7 +118,6 @@ public class Utils {
         clearConsole();
         printHeading("\n\n\n ✨ Your Party  ↂ" + party2.getPartyName() + "ↂ was Created ✨ \n\n\n");
         anythingToContinue();
-
 
 
         //create new Battle with the new 2 parties
@@ -320,7 +319,7 @@ public class Utils {
         } else if (!duel.getCurrentCombatant2().isAlive() && !duel.getCurrentCombatant1().isAlive()) {
             clearConsole();
             System.out.println(duel.getCurrentCombatant2().getName() + " & " +
-                    duel.getCurrentCombatant1().getName() + " are both demolished"  + "🔥 \n");
+                    duel.getCurrentCombatant1().getName() + " are both demolished" + "🔥 \n");
             System.out.println("THE DUEL IS A TIE!");
 
             newBattle.getGraveyard().add(duel.getCurrentCombatant1());
@@ -350,11 +349,11 @@ public class Utils {
                     "        @@@@@@@@@@@@@@.   @@@@@   (@@. @@@@@@@#   @@@ .@@@@@@@   #@@@@       *  @@@@@@@@@@@@   ✨   @@&  &@@   \n" +
                     "   ✨   @@@@@@/@@@@@@*    @@@@/   @@@   /@@@@@   *@@,   @@@@@&   @@@@@    @@@  .@@@@,  @@@@@       @@@@ @@@@   \n" +
                     "        @@@@@@ @@@@@(    #@@@@@ @@@@@@    @@@@ .@@@@@,   %@@@  @@@@@@@@@@@@@@,@@@@@@@ @@@@@@@     %@@@& @@@@ ");
-            System.out.println( "✨"+ party1.getPartyName() + " YOU MANAGED TO FIND " +
+            System.out.println("✨" + party1.getPartyName() + " YOU MANAGED TO FIND " +
                     "THE GOLDEN CODE \uD83C\uDFC6 \uD83D\uDC51, USE IT WISELY ✨");
 
         } else if (party2.getCharacters().size() == 0 && party1.getCharacters().size() > 0) {
-            System.out.println("✨"+ party2.getPartyName() + " YOU MANAGED TO FIND " +
+            System.out.println("✨" + party2.getPartyName() + " YOU MANAGED TO FIND " +
                     "THE GOLDEN CODE \uD83C\uDFC6 \uD83C\uDFFA , USE IT WISELY ✨");
 
         } else if (party1.getCharacters().size() == 0 && party2.getCharacters().size() == 0) {
@@ -414,34 +413,41 @@ public class Utils {
         int mana;
 
         if (isWarrior) {
-            //Setear lo de Warrior
             name = setAttribute("Which warrior name would you like?", "warrior's name");
-            printHeading("Choose your warrior's Health Points between 100 to 200:");
-            hp = Integer.parseInt(scanner.next());
-            printHeading("Choose your warrior's Stamina between 10 to 50:");
-            stamina = Integer.parseInt(scanner.next());
-            printHeading("Choose your warrior's Strength between 1 to 10:");
-            strength = Integer.parseInt(scanner.next());
+            hp = readStats("Choose your warrior's Health Points between 100 to 200:", 100, 200);
+            stamina = readStats("Choose your warrior's Stamina between 10 to 50:", 10, 50);
+            strength = readStats("Choose your warrior's Strength between 1 to 10:", 1, 10);
             Warrior customWarrior = new Warrior(name, hp, stamina, strength);
             clearConsole();
             printHeading("Your warrior has been created successfully!");
             return customWarrior;
 
         } else {
-            //Setear lo de Wizard
             name = setAttribute("Which wizard name would you like?", "wizard's name");
-            printHeading("Choose your wizard's Health Points between 50 to 100:");
-            hp = Integer.parseInt(scanner.next());
-            printHeading("Choose your wizard's Mana between between 10 to 50:");
-            mana = Integer.parseInt(scanner.next());
-            printHeading("Choose your wizard's Intelligence between 1 to 50:");
-            intelligence = Integer.parseInt(scanner.next());
+            hp = readStats("Choose your wizard's Health Points between 50 to 100:", 50, 100);
+            mana = readStats("Choose your wizard's Mana between between 10 to 50:", 10, 50);
+            intelligence = readStats("Choose your wizard's Intelligence between 1 to 50:", 1, 50);
             Wizard customWizard = new Wizard(name, hp, mana, intelligence);
             printHeading("Your wizard has been created successfully!");
             return customWizard;
         }
     }
 
+    /////////////////////////////////////////Method to catch stat setting errors ///////////////////////////////////////
+
+    private static int readStats(String prompt, int min, int max) {
+        int stat;
+        do {
+            System.out.println(prompt);
+            try {
+                stat = Integer.parseInt(scanner.next());
+            } catch (Exception e) {
+                stat = -1;
+                System.out.println("Please enter a valid integer!");
+            }
+        } while (stat < 100 || stat > 200);
+        return stat;
+    }
 
     /////////////////////////////////////////////////////////////Party Type Menu //////////////////////////////////////
     public static void printPartyTypeMenu() {
@@ -453,6 +459,7 @@ public class Utils {
         System.out.println("(2) Randomize Party");
         System.out.println("(3) Customize Party");
     }
+
     ///////////////////////////////////////////////////////////Method to select a combatant////////////////////////////
     public static Character selectCombatant(Party party) {
         Character currentCombatant = null;
